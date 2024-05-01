@@ -28,5 +28,5 @@
 - IDE：Cloud9
 ​
 ## 使用素材
-- 未定
-- https://www.photo-ac.com/
+- フリー画像素材として以下を利用
+  - 写真AC (https://www.photo-ac.com/)
