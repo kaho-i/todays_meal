@@ -1,0 +1,39 @@
+<% if user_signed_in? %>
+  <% if current_user.is_a?(User) %>
+    <!-- ユーザーログイン時の表示 -->
+    <p>ようこそ、<%= current_user.name %>さん！</p>
+    <ul>
+      <li><%= link_to 'logo', root_path %></li>
+      <li><%= link_to '新規投稿', new_post_path , class: 'menu-button' %></li>
+      <li><%= link_to 'マイページ', mypage_path, class: 'menu-button' %></li>
+      <li><%= link_to '投稿一覧', posts_path, class: 'menu-button' %></li>
+      <li><%= link_to 'ログアウト', destroy_user_session_path , method: :delete, class: 'menu-button' %></li>
+    </ul>
+  <% elsif current_user.is_a?(Shop) %>
+    <!-- 店舗ログイン時の表示 -->
+    <ul>
+      <li><%= link_to 'logo', shops_path %></li>
+      <li><%= link_to '予約一覧', shops_reservations_path , class: 'menu-button' %></li>
+      <li><%= link_to 'マイページ', shops_path , class: 'menu-button' %></li>
+      <li><%= link_to 'ログアウト', destroy_shop_session_path , method: :delete, class: 'menu-button' %></li>
+    </ul>
+  <% elsif current_user.is_a?(Admin) %>
+    <!-- 管理者ログイン時の表示 -->
+    <ul>
+      <li><%= link_to 'logo', admin_path %></li>
+      <li><%= link_to '投稿一覧', admin_posts_path , class: 'menu-button' %></li>
+      <li><%= link_to '会員一覧', admin_users_path , class: 'menu-button' %></li>
+      <li><%= link_to '店舗一覧', admin_shops_path , class: 'menu-button' %></li>
+      <li><%= link_to 'ログアウト', destroy_admin_session_path , method: :delete, class: 'menu-button' %></li>
+    </ul>
+  <% end %>
+<% else %>
+  <!-- ログイン前の表示 -->
+  <ul>
+    <li><%= link_to 'logo', root_path %></li>
+    <li><%= link_to 'About', about_path, class: 'menu-button' %></li>
+    <li><%= link_to 'マイページ', , class: 'menu-button' %></li>
+    <li><%= link_to '新規登録', new_user_registration_path, class: 'menu-button' %></li>
+    <li><%= link_to 'ログイン', new_user_session_path, class: 'menu-button' %></li>
+  </ul>
+<% end %>
