@@ -1,6 +1,14 @@
 <h1>Homes#top</h1>
 
+<h4>Public</h4>
 <p><%= link_to 'ゲストログイン(閲覧用)', users_guest_sign_in_path, method: :post %></p>
 <p>新規登録は<%= link_to 'こちら', new_user_registration_path %>から</p>
 <p>登録済みの方は<%= link_to 'こちら', new_user_session_path %>から</p>
 <p>ログアウトは<%= link_to 'こちら', destroy_user_session_path, method: :delete %>から</p>
+
+<h4>Shop</h4>
+<p>新規登録は<%= link_to 'こちら', 'shop/registrations/new' %>から</p>
+<p>ログインは<%= link_to 'こちら', 'shop/sessions/new' %>から</p>
+
+<h4>Admin</h4>
+<p>ログインは<%= link_to 'こちら', new_admin_session_path %>から</p>

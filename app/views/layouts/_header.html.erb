@@ -1,5 +1,5 @@
 <% if user_signed_in? %>
-  <% if current_user.is_a?(User) || current_user.is_a?(Guest) %>
+  <% if current_user.is_a?(User) %>
     <!-- ユーザーログイン時の表示 -->
     <p>ようこそ、<%= current_user.name %>さん！</p>
     <ul>
@@ -14,7 +14,7 @@
     <ul>
       <li><%= link_to 'logo', shops_path %></li>
       <li><%= link_to '予約一覧', shops_reservations_path , class: 'menu-button' %></li>
-      <li><%= link_to 'マイページ', shops_path , class: 'menu-button' %></li>
+      <li><%= link_to 'マイページ', shops_mypage_path , class: 'menu-button' %></li>
       <li><%= link_to 'ログアウト', destroy_shop_session_path , method: :delete, class: 'menu-button' %></li>
     </ul>
   <% elsif current_user.is_a?(Admin) %>
@@ -28,7 +28,7 @@
     </ul>
   <% end %>
 <% else %>
-  <!-- ログイン前、ゲストログイン時の表示 -->
+  <!-- ログイン前の表示 -->
   <ul>
     <li><%= link_to 'logo', root_path %></li>
     <li><%= link_to 'About', about_path, class: 'menu-button' %></li>

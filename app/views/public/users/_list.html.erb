@@ -1,0 +1,27 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>プロフィール画像</th>
+      <th>ニックネーム</th>
+      <th>自己紹介文</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% users.each do |user| %>
+    <tr>
+      <td><%= image_tag user.get_profile_image(50,50) %></td>
+      <td><%= link_to user.name, user_path(user) %></td>
+      <td><%= user.introduction %></td>
+      <!--<td>
+        <#% if current_user.following?(@user) %>
+          <#%= link_to 'フォロー解除する', user_relationship_path(@user), method: :delete %>
+        <#% else %>
+          <#%= link_to 'フォローする', user_relationships_path(@user), method: :post %>
+        <#% end %>
+      </td>-->
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate users %>

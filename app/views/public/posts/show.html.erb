@@ -1,2 +1,33 @@
 <h1>Public::Posts#show</h1>
-<p>Find me in app/views/public/posts/show.html.erb</p>
+<h2>投稿詳細画面</h2>
+
+<%= image_tag @post.get_image(100,100) %>
+<table>
+  <tr>
+    <th>店舗名</th>
+    <td><%= @post.shop_name %></td>
+  </tr>
+  <tr>
+    <th>投稿内容</th>
+    <td><%= @post.body %></td>
+  </tr>
+  <% if @post.user == current_user %>
+    <tr>
+      <td><%= link_to '編集する', edit_post_path(@post) %></td>
+      <td><%= link_to '削除する', post_path(@post) %></td>
+    </tr>
+  <% end %>
+  <!--
+  <tr>
+    <td>
+      <#% if favorite_by?(current_user) %>
+        <#%= link_to "#{post.favorites.count}いいね", post_favorites_path, method: :delete %>
+      <#% else %>
+        <#%= link_to "#{post.favorites.count}いいね", post_favorites_path, method: :post %>
+      <#% end %>
+    </td>
+  </tr>
+  -->
+</table>
+
+<!--コメント部分-->

@@ -1,4 +1,8 @@
 <!--<h1>Public::Users#mypage</h1>-->
-<h2><%= current_user.name %>さんのマイページ</h2>
+<h2><%= @user.name %>さんのマイページ</h2>
 
-<%= render 'info',user: current_user %>
+<%= render 'info',user: @user %>
+
+<h4><%= @user.name %>さんの投稿一覧</h4>
+
+<%= render 'public/posts/post', posts: @posts %>

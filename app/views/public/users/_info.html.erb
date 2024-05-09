@@ -1,17 +1,19 @@
-<%= form_with model: user do |f| %>
-  <%= image_tag user.get_profile_image(100,100) %>
-  <table>
-    <tr>
-      <th>ユーザーネーム</th>
-      <td><%= user.name %></td>
-    </tr>
-    <tr>
-      <th>自己紹介文</th>
-      <td><%= user.introduction %></td>
-    </tr>
-    <tr>
-      <td><%= link_to 'ユーザー編集', edit_user_path(user) %></td>
-      <td><%= link_to '退会する', withdraw_path(user) %></td>
-    </tr>
-  </table>
-<% end %>
+<%= image_tag user.get_profile_image(100,100) %>
+<table>
+  <tr>
+    <th>ユーザーネーム</th>
+    <td><%= user.name %></td>
+  </tr>
+  <tr>
+    <th>自己紹介文</th>
+    <td><%= user.introduction %></td>
+  </tr>
+  <% unless user.guest_user? %>
+    <tr><td><%= link_to 'ユーザー編集', edit_user_path(user) %></td></tr>
+    <tr><td><%= link_to '退会する', check_path(user) %></td></tr>
+    <!--
+    <tr><td><#%= link_to 'フォロー一覧', user_followings_path %></td></tr>
+    <tr><td><#%= link_to 'フォロワー一覧', user_followers_path %></td></tr>
+    -->
+  <% end %>
+</table>

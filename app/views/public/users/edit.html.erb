@@ -4,19 +4,22 @@
   <%= render 'layouts/errors', obj: @user %>
   <table>
     <tr>
-      <th><%= f.label :name,'ニックネーム' %></th>
-      <td><%= f.text_field :name, class: "form-control name" %></td>
-    </tr>
-    <tr>
-      <td><%= f.label :image, 'プロフィール画像' %></td>
+      <td><%= f.label :profile_image, 'プロフィール画像' %></td>
       <td><%= f.file_field :profile_image, class: "form-control-file user_image", accept: 'image/*' %></td>
     </tr>
     <tr>
-      <tr><%= f.label :introduction, '自己紹介文' %></tr>
-      <tr><%= f.text_area :introduction, class: "form-control introduction" %></tr>
+      <td><%= f.label :email, 'メールアドレス' %></td>
+      <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
     </tr>
     <tr>
-      <td></td>
+      <td><%= f.label :name,'ニックネーム' %></td>
+      <td><%= f.text_field :name, class: "form-control name" %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :introduction, '自己紹介文' %></td>
+      <td><%= f.text_area :introduction, placeholder: '自己紹介文を入力してください(任意)', class: "form-control introduction" %></td>
+    </tr>
+    <tr>
       <td><%= f.submit '編集', class: 'btn btn-secondary' %></td>
     </tr>
   </table>

@@ -1,11 +1,12 @@
 <h4>Admin#sessions</h4>
-<h2>ログイン</h2>
+<h2>管理者ログイン</h2>
 
 <%= form_with(model: resource, local: true, url: session_path(resource_name)) do |f| %>
+<!--<#%= render 'admin/error_messages', resource: resource %>-->
   <table>
     <tr>
       <td><%= f.label :email,"メールアドレス" %></td>
-      <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
+      <td><%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'sample@exsample.com' %></td>
     </tr>
     <tr>
       <td><%= f.label :password,"パスワード" %></td>

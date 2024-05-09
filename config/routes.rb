@@ -12,15 +12,16 @@ Rails.application.routes.draw do
     sessions: 'public/sessions'
   }
   scope module: :public do
-    get '/mypage', to: 'users#mypage'
-    patch '/users/:id/withdraw', to: 'users#withdraw',as: 'withdraw'
+    get '/mypage', to: 'users#mypage', as: 'mypage'
+    get 'users/:id/check', to: 'users#check', as: 'check'
+    patch '/users/:id/withdraw', to: 'users#withdraw', as: 'withdraw'
     resources :users, only: [:index, :show, :edit, :update] do
       resources :relationships, only: [:create, :destroy]
         get "followings" => "relationships#followings", as: "followings"
         get "followers" => "relationships#followers", as: "followers"
     end
     resources :posts do
-      resources :favorites, only: [:create, :destroy]
+      resource :favorites, only: [:create, :destroy]
       resources :comments, only: [:create, :destroy]
     end
     resources :shop, only: [:index, :show]
@@ -32,11 +33,11 @@ Rails.application.routes.draw do
   end
   # 店用
   # URL /shop/sign_in ...
-  devise_for :shops,skip: [:passwords], controllers: {
+  devise_for :shop,skip: [:passwords], controllers: {
     registrations: "shop/registrations",
     sessions: 'shop/sessions'
   }
-  get '/shops', to: 'shop/shops#mypage'
+  get '/shops/mypage', to: 'shop/shops#mypage'
   namespace :shops do
     get '/information/edit', to: 'shops#edit'
     patch '/information', to: 'shops#update'

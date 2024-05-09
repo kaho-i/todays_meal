@@ -1,8 +1,8 @@
-<h4>Users#sessions</h4>
-<h2>ログイン</h2>
+<h1>Shop::Sessions#new</h1>
+<h2>店舗ログイン</h2>
 
 <%= form_with(model: resource, local: true, url: session_path(resource_name)) do |f| %>
-<%= render "public/shared/error_messages", resource: resource %>
+<%= render "shop/shared/error_messages", resource: resource %>
   <table>
     <tr>
       <td><%= f.label :email,"メールアドレス" %></td>
@@ -19,4 +19,4 @@
   </table>
 <% end %>
 
-<%= render "public/shared/links" %>
+<%= render "shop/shared/links" %>

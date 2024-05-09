@@ -1,0 +1,29 @@
+<%= render 'layouts/errors', obj: post %>
+
+<table>
+  <%= form_with model: post do |f| %>
+  <tr>
+    <td><%= f.label :shop_name, '店舗名' %></td>
+    <td><%= f.text_field :shop_name, autofocus: true, placeholder: '店舗名を入力してください' %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :image, '投稿写真' %></td>
+    <td><%= f.file_field :image, accept: 'image/*' %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :body, '投稿内容' %></td>
+    <td><%= f.text_field :body, placeholder: '投稿内容を入力してください' %></td>
+  </tr>
+  <tr>
+    <% if f.object.persisted? %>
+      <td>
+        <%= f.submit "変更内容を保存", class: 'btn btn-success' %>
+      </td>
+    <% else %>
+      <td>
+        <%= f.submit "新規登録", class: 'btn btn-success' %>
+      </td>
+    <% end %>
+  </tr>
+  <% end %>
+</table>
