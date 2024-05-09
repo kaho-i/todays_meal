@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
-  # 顧客用
-  # URL /customers/sign_in ...
+  # ゲストユーザーログイン時
+  devise_scope :user do
+    post "users/guest_sign_in", to: "public/sessions#guest_sign_in"
+  end
+  # 利用者用
+  # URL /users/sign_in ...
   root to: 'public/homes#top'
   get "/about", to: "public/homes#about",as: 'about'
   devise_for :users,skip: [:passwords], controllers: {
@@ -9,7 +13,7 @@ Rails.application.routes.draw do
   }
   scope module: :public do
     get '/mypage', to: 'users#mypage'
-    patch '/users/:id/withdraw', to: 'users#withdraw'
+    patch '/users/:id/withdraw', to: 'users#withdraw',as: 'withdraw'
     resources :users, only: [:index, :show, :edit, :update] do
       resources :relationships, only: [:create, :destroy]
         get "followings" => "relationships#followings", as: "followings"

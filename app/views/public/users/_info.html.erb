@@ -1,0 +1,17 @@
+<%= form_with model: user do |f| %>
+  <%= image_tag user.get_profile_image(100,100) %>
+  <table>
+    <tr>
+      <th>ユーザーネーム</th>
+      <td><%= user.name %></td>
+    </tr>
+    <tr>
+      <th>自己紹介文</th>
+      <td><%= user.introduction %></td>
+    </tr>
+    <tr>
+      <td><%= link_to 'ユーザー編集', edit_user_path(user) %></td>
+      <td><%= link_to '退会する', withdraw_path(user) %></td>
+    </tr>
+  </table>
+<% end %>

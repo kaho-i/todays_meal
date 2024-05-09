@@ -1,5 +1,5 @@
 <% if user_signed_in? %>
-  <% if current_user.is_a?(User) %>
+  <% if current_user.is_a?(User) || current_user.is_a?(Guest) %>
     <!-- ユーザーログイン時の表示 -->
     <p>ようこそ、<%= current_user.name %>さん！</p>
     <ul>
@@ -28,11 +28,11 @@
     </ul>
   <% end %>
 <% else %>
-  <!-- ログイン前の表示 -->
+  <!-- ログイン前、ゲストログイン時の表示 -->
   <ul>
     <li><%= link_to 'logo', root_path %></li>
     <li><%= link_to 'About', about_path, class: 'menu-button' %></li>
-    <li><%= link_to 'マイページ', , class: 'menu-button' %></li>
+    <li><%= link_to 'マイページ', posts_path , class: 'menu-button' %></li>
     <li><%= link_to '新規登録', new_user_registration_path, class: 'menu-button' %></li>
     <li><%= link_to 'ログイン', new_user_session_path, class: 'menu-button' %></li>
   </ul>

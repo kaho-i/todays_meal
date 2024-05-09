@@ -1,0 +1,23 @@
+<h1>Public::Users#edit</h1>
+<h2>ユーザー情報編集画面</h2>
+<%= form_with model:@user, local:true do |f| %>
+  <%= render 'layouts/errors', obj: @user %>
+  <table>
+    <tr>
+      <th><%= f.label :name,'ニックネーム' %></th>
+      <td><%= f.text_field :name, class: "form-control name" %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :image, 'プロフィール画像' %></td>
+      <td><%= f.file_field :profile_image, class: "form-control-file user_image", accept: 'image/*' %></td>
+    </tr>
+    <tr>
+      <tr><%= f.label :introduction, '自己紹介文' %></tr>
+      <tr><%= f.text_area :introduction, class: "form-control introduction" %></tr>
+    </tr>
+    <tr>
+      <td></td>
+      <td><%= f.submit '編集', class: 'btn btn-secondary' %></td>
+    </tr>
+  </table>
+<% end %>

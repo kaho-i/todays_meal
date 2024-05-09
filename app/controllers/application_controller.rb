@@ -5,8 +5,8 @@ class ApplicationController < ActionController::Base
       admin_path
     when Shop
       shop_path
-    when Customer
-      root_path
+    when User
+      mypage_path
     else
       root_path
     end
