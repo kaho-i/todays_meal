@@ -1,0 +1,21 @@
+<h1>Shop::Restrantss#show</h1>
+<h4><%= @restrant.name %>さんのマイページ</h4>
+
+<table>
+  <tr>
+    <td>店舗名</td>
+    <td><%= @restrant.name %></td>
+  </tr>
+  <tr>
+    <td>電話番号</td>
+    <td><%= @restrant.telephone_number %></td>
+  </tr>
+  <tr>
+    <td>住所</td>
+    <td><%= @restrant.address %></td>
+  </tr>
+  <tr>
+    <td><%= link_to '編集する', shop_information_edit_path %></td>
+    <td><%= link_to '退会する', shop_confirm_path %></td>
+  </tr>
+</table>

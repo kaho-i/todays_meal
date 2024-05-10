@@ -1,5 +1,11 @@
 <h1>Admin::Homes#top</h1>
 <h2>管理者トップページ(仮)</h2>
 
-<p>ログインは<%= link_to 'こちら', new_admin_session_path %>から</p>
-<p>ログアウトは<%= link_to 'こちら', destroy_admin_session_path, method: :delete %>から</p>
+<% if admin_signed_in? %>
+  <p>ログアウトは<%= link_to 'こちら', destroy_admin_session_path, method: :delete, class: 'delete-link' %>から</p>
+<% else %>
+  <p>ログインは<%= link_to 'こちら', new_admin_session_path %>から</p>
+  
+  <%= link_to '利用者の方はこちらへ', root_path %> |
+  <%= link_to '店舗登録はこちらから', shop_path %>
+<% end %>

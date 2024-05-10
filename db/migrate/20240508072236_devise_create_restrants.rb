@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-class DeviseCreateShops < ActiveRecord::Migration[6.1]
+class DeviseCreateRestrants < ActiveRecord::Migration[6.1]
   def change
-    create_table :shops do |t|
+    create_table :restrants do |t|
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
@@ -33,15 +33,15 @@ class DeviseCreateShops < ActiveRecord::Migration[6.1]
       # t.datetime :locked_at
       t.string :name, null: false #店舗名
       t.string :telephone_number, null: false #店舗電話番号
-      t.string :address, null: false #店舗住所
+      t.string :address #店舗住所
       t.boolean :is_open, null: false, default: true #営業状況
 
       t.timestamps null: false
     end
 
-    add_index :shops, :email,                unique: true
-    add_index :shops, :reset_password_token, unique: true
-    # add_index :shops, :confirmation_token,   unique: true
-    # add_index :shops, :unlock_token,         unique: true
+    add_index :restrants, :email,                unique: true
+    add_index :restrants, :reset_password_token, unique: true
+    # add_index :restrants, :confirmation_token,   unique: true
+    # add_index :restrants, :unlock_token,         unique: true
   end
 end

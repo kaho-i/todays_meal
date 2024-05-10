@@ -1,8 +1,8 @@
 <h1>Public::Users#edit</h1>
 <h2>ユーザー情報編集画面</h2>
-<%= form_with model:@user, local:true do |f| %>
-  <%= render 'layouts/errors', obj: @user %>
+
   <table>
+  <%= form_with model: @user, local:true do |f| %>
     <tr>
       <td><%= f.label :profile_image, 'プロフィール画像' %></td>
       <td><%= f.file_field :profile_image, class: "form-control-file user_image", accept: 'image/*' %></td>
@@ -20,7 +20,7 @@
       <td><%= f.text_area :introduction, placeholder: '自己紹介文を入力してください(任意)', class: "form-control introduction" %></td>
     </tr>
     <tr>
-      <td><%= f.submit '編集', class: 'btn btn-secondary' %></td>
+      <td><%= f.submit '変更を保存する', class: 'btn btn-secondary' %></td>
     </tr>
-  </table>
-<% end %>
+  <% end %>
+</table>

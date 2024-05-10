@@ -14,7 +14,7 @@
   <% if @post.user == current_user %>
     <tr>
       <td><%= link_to '編集する', edit_post_path(@post) %></td>
-      <td><%= link_to '削除する', post_path(@post) %></td>
+      <td><%= link_to '削除する', post_path(@post), class: 'delete-link' %></td>
     </tr>
   <% end %>
   <!--

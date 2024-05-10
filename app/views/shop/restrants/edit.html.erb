@@ -1,0 +1,23 @@
+<h1>Shop::Shops#edit</h1>
+<h4><%= @restrant.name %>さんの店舗情報編集画面</h4>
+<!--<#%= render 'layouts/error', obj: @restrant %>-->
+
+<table>
+  <%= form_with model: @restrant, url: shop_information_path do |f| %>
+  <tr>
+    <td><%= f.label :name, '店舗名' %></td>
+    <td><%= f.text_field :name, autofocus: true %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :telephone_number, '電話番号(ハイフンなし)' %></td>
+    <td><%= f.text_field :telephone_number, placeholder: '00000000000' %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :address, '住所' %></td>
+    <td><%= f.text_field :address, placeholder: '東京都渋谷区代々木神園町0-0' %></td>
+  </tr>
+  <tr>
+    <td><%= f.submit '変更を保存する', class: 'btn btn-secondary' %></td>
+  </tr>
+  <% end %>
+</table>

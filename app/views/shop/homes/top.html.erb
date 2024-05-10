@@ -1,0 +1,12 @@
+<h1>Shop::Homes#top</h1>
+<h4>店舗トップページ(仮)</h4>
+
+<% if restrant_signed_in? %>
+  <p>ログアウトは<%= link_to 'こちら', destroy_restrant_session_path, class: 'delete-link' %>から</p>
+<% else %>
+  <p>新規登録は<%= link_to 'こちら', new_restrant_registration_path %>から</p>
+  <p>ログインは<%= link_to 'こちら', new_restrant_session_path %>から</p>
+  
+  <%= link_to '利用者の方はこちらへ', root_path %> |
+  <%= link_to '管理者の方はこちらから', admin_path %>
+<% end %>
