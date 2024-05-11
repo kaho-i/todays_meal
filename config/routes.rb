@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     get 'users/:id/check', to: 'users#check', as: 'check'
     patch '/users/:id/withdraw', to: 'users#withdraw', as: 'withdraw'
     resources :users, only: [:index, :show, :edit, :update] do
-      resources :relationships, only: [:create, :destroy]
+      resource :relationships, only: [:create, :destroy]
         get "followings" => "relationships#followings", as: "followings"
         get "followers" => "relationships#followers", as: "followers"
     end
