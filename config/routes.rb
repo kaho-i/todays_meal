@@ -37,7 +37,7 @@ Rails.application.routes.draw do
   devise_for :restrants,skip: [:passwords], controllers: {
     registrations: "shop/registrations",
     sessions: 'shop/sessions'
-  }, path: 'shops'
+  }, path: 'shop'
   namespace :shop do
     get '/mypage', to: 'restrants#show'
     get '/information/edit', to: 'restrants#edit'
