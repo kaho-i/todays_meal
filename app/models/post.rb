@@ -9,9 +9,9 @@ class Post < ApplicationRecord
   validates :shop_name, presence: true
   validates :body, presence: true
   
-  def get_image(width, height)
-    image.variant(resize_to_limit: [width, height]).processed
-  end
+  #def get_image(width, height)
+    #image.variant(resize_to_limit: [width, height]).processed
+  #end
   
   def favorited_by?(user)
     favorites.exists?(user_id: user.id)

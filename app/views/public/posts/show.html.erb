@@ -1,33 +1,44 @@
-<h1>Public::Posts#show</h1>
-<h2>投稿詳細画面</h2>
-
-<%= image_tag @post.get_image(100,100) %>
-<table>
-  <tr>
-    <th>店舗名</th>
-    <td><%= @post.shop_name %></td>
-  </tr>
-  <tr>
-    <th>投稿内容</th>
-    <td><%= @post.body %></td>
-  </tr>
-  <% if @post.user == current_user %>
+<!--h1>Public::Posts#show</h1-->
+<div class="row m-3">
+  <h2 class="py-2">投稿詳細画面</h2>
+</div>
+<div class="row">
+  <div class="col-3 mx-auto">
+    <%= image_tag @post.image, size: "200x200" %>
+  </div>
+  <table class="col-9">
     <tr>
-      <td><%= link_to '編集する', edit_post_path(@post) %></td>
-      <td><%= link_to '削除する', post_path(@post), class: 'delete-link' %></td>
+      <th class="col-3">投稿ユーザー</th>
+      <td class="col-9"><%= link_to @post.user.name,user_path(@post.user_id) %></td>
     </tr>
-  <% end %>
-  <!--
-  <tr>
-    <td>
-      <#% if favorite_by?(current_user) %>
-        <#%= link_to "#{post.favorites.count}いいね", post_favorites_path, method: :delete %>
-      <#% else %>
-        <#%= link_to "#{post.favorites.count}いいね", post_favorites_path, method: :post %>
-      <#% end %>
-    </td>
-  </tr>
-  -->
-</table>
+    <tr>
+      <th class="col-3">店舗名</th>
+      <td class="col-9"><%= @post.shop_name %></td>
+    </tr>
+    <tr>
+      <th class="col-3">投稿内容</th>
+      <td class="col-9"><%= @post.body %></td>
+    </tr>
+    <!--
+    <tr>
+      <td>
+        <#% if favorite_by?(current_user) %>
+          <#%= link_to "#{post.favorites.count}いいね", post_favorites_path, method: :delete %>
+        <#% else %>
+          <#%= link_to "#{post.favorites.count}いいね", post_favorites_path, method: :post %>
+        <#% end %>
+      </td>
+    </tr>
+    -->
+  </table>
+</div>
 
-<!--コメント部分-->
+<div class="row mt-3">
+  <% if @post.user == current_user %>
+    <div class="offset-2 col-3"><%= link_to '編集する', edit_post_path(@post), class: 'btn btn-block btn-success' %></div>
+    <div class="offset-1 col-3"><%= link_to '削除する', post_path(@post), class: 'delete-link btn btn-block btn-danger' %></div>
+  <% end %>
+</div>
+<div class="row">
+  コメント部分
+</div>

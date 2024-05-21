@@ -11,7 +11,16 @@
   </head>
 
   <body>
-    <%= render "layouts/header" %>
-    <%= yield %>
+    <div class="container">
+      <div class="row">
+        <%= render "layouts/header" %>
+      </div>
+      <div class="row">
+        <!--#% if notice %>
+          <#%= flash[notice] %>
+        <#% end %-->
+      </div>
+      <%= yield %>
+    </div>
   </body>
 </html>

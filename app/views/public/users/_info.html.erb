@@ -1,16 +1,25 @@
-<%= image_tag user.get_profile_image(100,100) %>
-<table>
-  <tr>
-    <th>ユーザーネーム</th>
-    <td><%= user.name %></td>
+<div class="mb-4">
+  <div class="col-10 mx-auto">
+    <%= image_tag user.get_profile_image, size: "100x100" %>
+  </div>
+</div>
+
+<table class="col-10 mx-auto">
+  <tr class="row mb-2">
+    <th class="col-4">名前</th>
+    <td class="col-8"><%= user.name %></td>
   </tr>
-  <tr>
-    <th>自己紹介文</th>
-    <td><%= user.introduction %></td>
+  <tr class="row mb-2">
+    <th class="col-4">自己紹介文</th>
+    <td class="col-8"><%= user.introduction %></td>
   </tr>
   <% unless user.guest_user? %>
-    <tr><td><%= link_to 'ユーザー編集', edit_user_path(user) %></td></tr>
-    <tr><td><%= link_to '退会する', check_path(user) %></td></tr>
+    <tr class="row mb-2">
+      <td class="col-10"><%= link_to '編集する', edit_user_path(user), class: 'btn btn-block btn-info' %></td>
+    </tr>
+    <tr class="row">
+      <td class="col-10"><%= link_to '退会する', check_path(user), class: 'btn btn-block btn-danger' %></td>
+    </tr>
     <!--
     <tr><td><#%= link_to 'フォロー一覧', user_followings_path %></td></tr>
     <tr><td><#%= link_to 'フォロワー一覧', user_followers_path %></td></tr>

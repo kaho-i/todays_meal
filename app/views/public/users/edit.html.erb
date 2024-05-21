@@ -1,26 +1,29 @@
-<h1>Public::Users#edit</h1>
-<h2>ユーザー情報編集画面</h2>
-
-  <table>
+<!--h1>Public::Users#edit</h1-->
+<div class="row my-4">
+  <h2>ユーザー情報編集画面</h2>
+</div>
+<div class="container">
+  <table class="col-10 mx-auto">
   <%= form_with model: @user, local:true do |f| %>
-    <tr>
-      <td><%= f.label :profile_image, 'プロフィール画像' %></td>
-      <td><%= f.file_field :profile_image, class: "form-control-file user_image", accept: 'image/*' %></td>
+    <tr class="row mb-2">
+      <th class="col-3"><%= f.label :profile_image, 'プロフィール画像' %></td>
+      <td class="col-8 offset-1"><%= f.file_field :profile_image, class: "form-control-file user_image", accept: 'image/*',style: 'width: 100%' %></td>
     </tr>
-    <tr>
-      <td><%= f.label :email, 'メールアドレス' %></td>
-      <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
+    <tr class="row mb-2">
+      <th class="col-3"><%= f.label :email, 'メールアドレス' %></td>
+      <td class="col-8 offset-1"><%= f.email_field :email, autofocus: true, autocomplete: "email",style: 'width: 100%' %></td>
     </tr>
-    <tr>
-      <td><%= f.label :name,'ニックネーム' %></td>
-      <td><%= f.text_field :name, class: "form-control name" %></td>
+    <tr class="row mb-2">
+      <th class="col-3"><%= f.label :name,'ニックネーム' %></td>
+      <td class="col-8 offset-1"><%= f.text_field :name, class: "form-control name",style: 'width:100%' %></td>
     </tr>
-    <tr>
-      <td><%= f.label :introduction, '自己紹介文' %></td>
-      <td><%= f.text_area :introduction, placeholder: '自己紹介文を入力してください(任意)', class: "form-control introduction" %></td>
+    <tr class="row mb-2">
+      <th class="col-3"><%= f.label :introduction, '自己紹介文' %></td>
+      <td class="col-8 offset-1"><%= f.text_area :introduction, placeholder: '自己紹介文を入力してください(任意)', class: "form-control introduction",style: 'width: 100%' %></td>
     </tr>
-    <tr>
-      <td><%= f.submit '変更を保存する', class: 'btn btn-secondary' %></td>
+    <tr class="row">
+      <td class="col-4 offset-3"><%= f.submit '変更を保存する', class: 'btn btn-block btn-success' %></td>
     </tr>
   <% end %>
-</table>
+  </table>
+</div>
