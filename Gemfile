@@ -56,10 +56,10 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'kaminari'
-gem 'dotenv-rails'
-group :production do
-  gem 'mysql2'
-end
-gem "net-smtp"
-gem "net-pop"
-gem "net-imap"
+#gem 'dotenv-rails'
+#group :production do
+#  gem 'mysql2'
+#end
+#gem "net-smtp"
+#gem "net-pop"
+#gem "net-imap"
