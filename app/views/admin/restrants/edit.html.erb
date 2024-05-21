@@ -4,23 +4,23 @@
 </div>
 <!--<#%= render 'layouts/error', obj: @restrant %>-->
 <table class="container col-10 mx-auto ">
-  <%= form_with model: @restrant, url: shop_information_path do |f| %>
+  <%= form_with model: @restrant, url: admin_restrant_path do |f| %>
   <tr class="row mb-2">
-    <td class="col-3"><%= f.label :name, '店舗名' %></td>
-    <td class="col-7"><%= f.text_field :name, autofocus: true,style: 'width:100%' %></td>
+    <td class="col-4"><%= f.label :name, '店舗名' %></td>
+    <td class="col-8"><%= f.text_field :name, autofocus: true,style: 'width:100%' %></td>
   </tr>
   <tr class="row mb-2">
-    <td class="col-3"><%= f.label :telephone_number, '電話番号(ハイフンなし)' %></td>
-    <td class="col-7"><%= f.text_field :telephone_number, placeholder: '00000000000',style:'width:100%' %></td>
+    <td class="col-4"><%= f.label :telephone_number, '電話番号(ハイフンなし)' %></td>
+    <td class="col-8"><%= f.text_field :telephone_number, placeholder: '00000000000',style:'width:100%' %></td>
   </tr>
   <tr class="row mb-2">
-    <td class="col-3"><%= f.label :address, '住所' %></td>
-    <td class="col-7"><%= f.text_field :address, placeholder: '東京都渋谷区代々木神園町0-0',style:'width: 100%' %></td>
+    <td class="col-4"><%= f.label :address, '住所' %></td>
+    <td class="col-8"><%= f.text_field :address, placeholder: '東京都渋谷区代々木神園町0-0',style:'width: 100%' %></td>
   </tr>
   <tr class="row mb-4">
-    <td class="col-3"><%= f.label :is_open, '営業状況' %></td>
-    <td>
-      <%= f.radio_button :is_open, true, class: 'col-2 offset-1' %> 営業中
+    <td class="col-4"><%= f.label :is_open, '営業状況' %></td>
+    <td class="col-8">
+      <%= f.radio_button :is_open, true, class: 'col-2' %> 営業中
       <%= f.radio_button :is_open, false, class: 'col-2 offset-2' %> 退会済
     </td>
   </tr>

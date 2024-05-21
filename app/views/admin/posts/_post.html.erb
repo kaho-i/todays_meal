@@ -1,4 +1,4 @@
-<table class="container">
+<table class="container table">
   <thead>
     <tr class="row">
       <td class="col-2"></td>
@@ -11,7 +11,7 @@
     <% posts.each do |post| %>
     <tr class="row">
       <td class="col-2">
-        <%= link_to post_path(post) do %>
+        <%= link_to admin_post_path(post) do %>
           <%= image_tag post.image, size: "50x50" %>
         <% end %>
       </td>

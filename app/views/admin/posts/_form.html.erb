@@ -3,18 +3,18 @@
 </div>
 
 <table class='container'>
-  <%= form_with model: post do |f| %>
+  <%= form_with model: post, url: admin_post_path do |f| %>
   <tbody>
     <tr class="row mb-2">
-      <td class="offset-1 col-3"><%= f.label :shop_name, '店舗名' %></td>
+      <td class="col-4"><%= f.label :shop_name, '店舗名' %></td>
       <td class="col-8"><%= f.text_field :shop_name, autofocus: true, placeholder: '店舗名を入力してください',style: 'width: 100%' %></td>
     </tr>
     <tr class="row mb-2">
-      <td class="offset-1 col-3"><%= f.label :image, '投稿写真' %></td>
+      <td class="col-4"><%= f.label :image, '投稿写真' %></td>
       <td class="col-8"><%= f.file_field :image, accept: 'image/*',style: 'width: 100%' %></td>
     </tr>
     <tr class="row mb-3">
-      <td class="offset-1 col-3"><%= f.label :body, '投稿内容' %></td>
+      <td class="col-4"><%= f.label :body, '投稿内容' %></td>
       <td class="col-8"><%= f.text_field :body, placeholder: '投稿内容を入力してください',style: 'width: 100%' %></td>
     </tr>
     <tr class="row">

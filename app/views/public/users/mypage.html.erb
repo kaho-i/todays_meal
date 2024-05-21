@@ -11,6 +11,10 @@
         </div>
       </div>
       <%= render 'info',user: @user %>
+      <div class="row col-10 mx-auto">
+        <%= link_to '店舗一覧', restrants_path %><br>
+        <%= link_to '会員一覧', users_path %>
+      </div>
     </div>
     <div class="col-8">
       <h4><%= @user.name %>さんの投稿一覧</h4>
