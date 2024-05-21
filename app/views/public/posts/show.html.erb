@@ -8,16 +8,16 @@
   </div>
   <table class="col-9">
     <tr>
-      <th class="col-3">投稿ユーザー</th>
-      <td class="col-9"><%= link_to @post.user.name,user_path(@post.user_id) %></td>
+      <th class="col-4">投稿ユーザー</th>
+      <td class="col-8"><%= link_to @post.user.name,user_path(@post.user_id) %></td>
     </tr>
     <tr>
-      <th class="col-3">店舗名</th>
-      <td class="col-9"><%= @post.shop_name %></td>
+      <th class="col-4">店舗名</th>
+      <td class="col-8"><%= @post.shop_name %></td>
     </tr>
     <tr>
-      <th class="col-3">投稿内容</th>
-      <td class="col-9"><%= @post.body %></td>
+      <th class="col-4">投稿内容</th>
+      <td class="col-8"><%= @post.body %></td>
     </tr>
     <!--
     <tr>

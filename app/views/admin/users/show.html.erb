@@ -1,2 +1,12 @@
-<h1>Admin::Users#show</h1>
-<p>Find me in app/views/admin/users/show.html.erb</p>
+<!--h1>Admin::Users#show</h1-->
+<div class="row mt-3">
+  <h2 class="col-10 mx-auto">ユーザー情報詳細画面</h2>
+</div>
+<div class="row">
+  <div class="col-4">
+    <%= image_tag @user.get_profile_image, size: "200x200" %>
+  </div>
+  <div class="col-8">
+    <%= render 'info', user: @user %>
+  </div>
+</div>

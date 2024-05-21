@@ -15,7 +15,7 @@
           <%= image_tag post.image, size: "50x50" %>
         <% end %>
       </td>
-      <td class="col-3"><%= link_to post.user.name, user_path(post.user) %></td>
+      <td class="col-3"><%= link_to post.user.name, admin_user_path(post.user) %></td>
       <td class="col-3"><%= post.shop_name %></td>
       <td class="col-3"><%= post.body %></td>
       <!--

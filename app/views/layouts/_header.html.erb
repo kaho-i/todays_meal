@@ -1,7 +1,7 @@
-<div class='container mt-3'>
-  <div class='row'>
-    <% if user_signed_in? %>
-    <!-- ユーザーログイン時の表示 -->
+<div class="container">
+  <% if user_signed_in? %>
+  <!-- ユーザーログイン時の表示 -->
+    <div class="row mt-3">
       <div class='col-2'><%= link_to 'logo', root_path %></div>
       <div class='col-2 offset-2'><%= link_to '新規投稿', new_post_path , class: 'menu-button' %></div>
       <div class='col-2'><%= link_to 'マイページ', mypage_path, class: 'menu-button' %></div>
@@ -11,14 +11,15 @@
     <div class="row offset-1">ようこそ、<%= current_user.name %>さん！</div>
   <% elsif restrant_signed_in? %>
     <!-- 店舗ログイン時の表示 -->
+    <div class="row mt-3">
       <div class='col-2'><%= link_to 'logo', shop_path %></div>
       <div class='col-2 offset-4'><%= link_to '予約一覧', shop_reservations_path , class: 'menu-button' %></div>
       <div class='col-2'><%= link_to 'マイページ', shop_mypage_path , class: 'menu-button' %></div>
       <div class='col-2'><%= link_to 'ログアウト', destroy_restrant_session_path , method: :delete, class: 'delete-link' %></div>
     </div>
-    <div class='row offset-1'><%= current_shop.name %>のマイページ</div>
   <% elsif admin_signed_in? %>
     <!-- 管理者ログイン時の表示 -->
+    <div class="row mt-3">
       <div class="col-2"><%= link_to 'logo', admin_path %></div>
       <div class="col-2 offset-2"><%= link_to '投稿一覧', admin_posts_path , class: 'menu-button' %></div>
       <div class="col-2"><%= link_to '会員一覧', admin_users_path , class: 'menu-button' %></div>
@@ -28,6 +29,7 @@
     <div class="row offset-1">こちらは管理者ページです</div>
   <% else %>
     <!-- ログイン前の表示 -->
+    <div class="row mt-3">
       <div class="col-2"><%= link_to 'logo', root_path %></div>
       <div class="col-2 offset-2"><%= link_to 'About', about_path, class: 'menu-button' %></div>
       <div class="col-2"><%= link_to '投稿一覧', posts_path , class: 'menu-button' %></div>

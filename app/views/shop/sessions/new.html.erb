@@ -1,22 +1,27 @@
-<h1>Shop::Sessions#new</h1>
-<h2>店舗ログイン</h2>
-
-<%= form_with(model: resource, local: true, url: session_path(resource_name)) do |f| %>
-<%= render "shop/shared/error_messages", resource: resource %>
-  <table>
-    <tr>
-      <td><%= f.label :email,"メールアドレス" %></td>
-      <td><%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'sample@exsample.com' %></td>
+<!--h1>Shop::Sessions#new</h1-->
+<div class="container col-10 mx-auto">
+  <div class="row mt-3">
+    <h2>店舗ログイン</h2>
+  </div>
+  <%= form_with(model: resource, local: true, url: session_path(resource_name)) do |f| %>
+  <div class="row">
+    <%= render "shop/shared/error_messages", resource: resource %>
+  </div>
+  <table class="container mt-4">
+    <tr class="row mb-2">
+      <td class="col-3"><%= f.label :email,"メールアドレス" %></td>
+      <td class="col-7"><%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'sample@exsample.com',style:'width:100%' %></td>
     </tr>
-    <tr>
-      <td><%= f.label :password,"パスワード" %></td>
-      <td><%= f.password_field :password, autocomplete: "current-password" %></td>
+    <tr class="row mb-4">
+      <td class="col-3"><%= f.label :password,"パスワード" %></td>
+      <td class="col-7"><%= f.password_field :password, autocomplete: "current-password",style:'width:100%' %></td>
     </tr>
-    <tr>
-      <td></td>
-      <td><%= f.submit "ログイン" %></td>
+    <tr class="row mb-3">
+      <td class="col-3 offset-3"><%= f.submit "ログイン",class:'btn btn-block btn-info' %></td>
     </tr>
   </table>
-<% end %>
-
-<%= render "shop/shared/links" %>
+  <% end %>
+  <div class="row">
+    <%= render "shop/shared/links" %>
+  </div>
+</div>

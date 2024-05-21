@@ -1,11 +1,18 @@
 <!--<h1>Public::Users#mypage</h1>-->
 <div class="container">
-  <h2 class="col-10 my-4 px-0"><%= @user.name %>さんのマイページ</h2>
   <div class="row">
-    <div class="col-5">
+    <h2 class="col-10 my-4 mx-auto"><%= @user.name %>さんのマイページ</h2>
+  </div>
+  <div class="row">
+    <div class="col-4">
+      <div class="mb-4">
+        <div class="col-10 mx-auto">
+          <%= image_tag @user.get_profile_image, size: "100x100" %>
+        </div>
+      </div>
       <%= render 'info',user: @user %>
     </div>
-    <div class="col-7">
+    <div class="col-8">
       <h4><%= @user.name %>さんの投稿一覧</h4>
       <%= render 'public/posts/post', posts: @posts %>
     </div>
