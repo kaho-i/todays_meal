@@ -1,19 +1,19 @@
 <!--h4>Users#sessions</h4-->
-<div class="container col-10 mx-auto">
-  <div class="row mt-3">
+<div class="container">
+  <div class="row my-3">
     <h2>ログイン</h2>
   </div>
   <%= form_with(model: resource, local: true, url: session_path(resource_name)) do |f| %>
   <div class="row">
     <%= render "public/shared/error_messages", resource: resource %>
   </div>
-  <table class="container mt-4">
+  <table class="container">
     <tr class="row mb-2">
-      <td class="col-3"><%= f.label :email,"メールアドレス" %></td>
+      <td class="offset-1 col-3"><%= f.label :email,"メールアドレス" %></td>
       <td class="col-7"><%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'sample@exsample.com',style: 'width:100%' %></td>
     </tr>
     <tr class="row mb-4">
-      <td class="col-3"><%= f.label :password,"パスワード" %></td>
+      <td class="offset-1 col-3"><%= f.label :password,"パスワード" %></td>
       <td class="col-7"><%= f.password_field :password, autocomplete: "current-password", style:'width:100%' %></td>
     </tr>
     <tr class="row mb-3">
@@ -21,7 +21,7 @@
     </tr>
   </table>
   <% end %>
-  <div class="row">
+  <div class="row mt-5">
     <%= render "public/shared/links" %>
   </div>
 </div>

@@ -1,42 +1,44 @@
 <!--h1>Admin::Posts#show</h1-->
-<div class="row m-3">
-  <h2 class="py-2">投稿詳細画面</h2>
-</div>
-<div class="row">
-  <div class="col-3 mx-auto">
-    <%= image_tag @post.image, size: "200x200" %>
+<div class="container">
+  <div class="row my-3">
+    <h2>投稿詳細画面</h2>
   </div>
-  <table class="col-9">
-    <tr>
-      <th class="col-4">投稿ユーザー</th>
-      <td class="col-8"><%= link_to @post.user.name,user_path(@post.user_id) %></td>
-    </tr>
-    <tr>
-      <th class="col-4">店舗名</th>
-      <td class="col-8"><%= @post.shop_name %></td>
-    </tr>
-    <tr>
-      <th class="col-4">投稿内容</th>
-      <td class="col-8"><%= @post.body %></td>
-    </tr>
-    <!--
-    <tr>
-      <td>
-        <#% if favorite_by?(current_user) %>
-          <#%= link_to "#{post.favorites.count}いいね", post_favorites_path, method: :delete %>
-        <#% else %>
-          <#%= link_to "#{post.favorites.count}いいね", post_favorites_path, method: :post %>
-        <#% end %>
-      </td>
-    </tr>
-    -->
-  </table>
-</div>
-
-<div class="row mt-3">
-  <div class="offset-2 col-3"><%= link_to '編集する', edit_admin_post_path(@post), class: 'btn btn-block btn-success' %></div>
-  <div class="offset-1 col-3"><%= link_to '削除する', admin_post_path(@post), class: 'delete-link btn btn-block btn-danger' %></div>
-</div>
-<div class="row">
-  コメント部分
+  <div class="row">
+    <div class="col-3 mx-auto">
+      <%= image_tag @post.image, size: "200x200" %>
+    </div>
+    <table class="col-9">
+      <tr>
+        <td class="offset-1 col-3">投稿ユーザー</td>
+        <td class="col-8"><%= link_to @post.user.name,user_path(@post.user_id) %></td>
+      </tr>
+      <tr>
+        <td class="offset-1 col-3">店舗名</td>
+        <td class="col-8"><%= @post.shop_name %></td>
+      </tr>
+      <tr>
+        <td class="offset-1 col-3">投稿内容</td>
+        <td class="col-8"><%= @post.body %></td>
+      </tr>
+      <!--
+      <tr>
+        <td>
+          <#% if favorite_by?(current_user) %>
+            <#%= link_to "#{post.favorites.count}いいね", post_favorites_path, method: :delete %>
+          <#% else %>
+            <#%= link_to "#{post.favorites.count}いいね", post_favorites_path, method: :post %>
+          <#% end %>
+        </td>
+      </tr>
+      -->
+    </table>
+  </div>
+  
+  <div class="row my-4">
+    <div class="offset-2 col-3"><%= link_to '編集する', edit_admin_post_path(@post), class: 'btn btn-block btn-success' %></div>
+    <div class="offset-1 col-3"><%= link_to '削除する', admin_post_path(@post), class: 'delete-link btn btn-block btn-danger' %></div>
+  </div>
+  <div class="row">
+    コメント部分
+  </div>
 </div>

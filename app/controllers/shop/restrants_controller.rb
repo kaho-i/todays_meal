@@ -25,7 +25,7 @@ class Shop::RestrantsController < ApplicationController
     @restrant = current_restrant
     @restrant.update(is_open: false)
     reset_session
-    redirect_to shops_path
+    redirect_to shop_path
   end
   
   private

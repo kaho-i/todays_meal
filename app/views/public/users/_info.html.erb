@@ -7,16 +7,4 @@
     <th class="col-4">自己紹介</th>
     <td class="col-8"><%= user.introduction %></td>
   </tr>
-  <% unless user.guest_user? %>
-    <tr class="row mb-2">
-      <td class="col-10"><%= link_to '編集する', edit_user_path(user), class: 'btn btn-block btn-info' %></td>
-    </tr>
-    <tr class="row">
-      <td class="col-10"><%= link_to '退会する', check_path(user), class: 'btn btn-block btn-danger' %></td>
-    </tr>
-    <!--
-    <tr><td><#%= link_to 'フォロー一覧', user_followings_path %></td></tr>
-    <tr><td><#%= link_to 'フォロワー一覧', user_followers_path %></td></tr>
-    -->
-  <% end %>
 </table>

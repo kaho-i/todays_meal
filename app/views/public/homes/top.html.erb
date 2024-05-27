@@ -1,13 +1,21 @@
-<h1>Homes#top</h1>
-
-<h4>Public</h4>
-<% if user_signed_in? %>
-  <p>ログアウトは<%= link_to 'こちら', destroy_user_session_path, method: :delete, class: 'delete-link' %>から</p>
-<% else %>
-  <p><%= link_to 'ゲストログイン(閲覧用)', users_guest_sign_in_path, method: :post %></p>
-  <p>新規登録は<%= link_to 'こちら', new_user_registration_path %>から</p>
-  <p>登録済みの方は<%= link_to 'こちら', new_user_session_path %>から</p>
-  
-  <%= link_to '店舗登録はこちらから', shop_path %> |
-  <%= link_to '管理者の方はこちらから', admin_path %>
-<% end %>
+<div class="container">
+<!--h1>Homes#top</h1-->
+<div class="row my-3">
+  <h2>きょうのごはん</h2>
+</div>
+  <% if user_signed_in? %>
+    <div class="row-my-3">ログアウトは<%= link_to 'こちら', destroy_user_session_path, method: :delete, class: 'delete-link' %>から</div>
+  <% else %>
+    <div class="row my-4">お試しは<%= link_to 'こちら', users_guest_sign_in_path, method: :post %>から</div>
+    <div class="row">
+      <p>新規登録は<%= link_to 'こちら', new_user_registration_path %>から</p>
+      <p class="mx-4">|</p>
+      <p>登録済みの方は<%= link_to 'こちら', new_user_session_path %>から</p>
+    </div>
+    <div class="row mt-3">
+      <p><%= link_to '店舗登録はこちらから', shop_path %></p>
+      <p class="mx-4">|</p>
+      <p><%= link_to '管理者の方はこちらから', admin_path %></p>
+    </div>
+  <% end %>
+</div>

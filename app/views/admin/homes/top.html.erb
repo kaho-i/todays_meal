@@ -1,11 +1,14 @@
-<h1>Admin::Homes#top</h1>
-<h2>管理者トップページ(仮)</h2>
-
-<% if admin_signed_in? %>
-  <p>ログアウトは<%= link_to 'こちら', destroy_admin_session_path, method: :delete, class: 'delete-link' %>から</p>
-<% else %>
-  <p>ログインは<%= link_to 'こちら', new_admin_session_path %>から</p>
-  
-  <%= link_to '利用者の方はこちらへ', root_path %> |
-  <%= link_to '店舗登録はこちらから', shop_path %>
-<% end %>
+<!--h1>Admin::Homes#top</h1-->
+<div class="container">
+  <div class="row my-3"><h4>管理者トップページ(仮)</h4></div>
+  <% if admin_signed_in? %>
+    <div class="row mt-3">ログアウトは<%= link_to 'こちら', destroy_admin_session_path, method: :delete, class: 'delete-link' %>から</div>
+  <% else %>
+    <div class="row my-3">ログインは<%= link_to 'こちら', new_admin_session_path %>から</div>
+    <div class="row mt-4">
+      <%= link_to '利用者の方はこちらへ', root_path %>
+      <p class="mx-4">|</p>
+      <%= link_to '店舗登録はこちらから', shop_path %>
+    </div>
+  <% end %>
+</div>

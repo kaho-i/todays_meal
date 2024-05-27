@@ -1,25 +1,26 @@
-<table class="container table">
+<table class="table mt-3">
   <thead>
-    <tr class="row mt-3">
-      <th class="col-2">プロフィール画像</th>
-      <th class="col-2">ニックネーム</th>
-      <th class="col-4">自己紹介文</th>
+    <tr class="row">
+      <th class="col-2">ユーザーID</th>
+      <th class="col-3">ニックネーム</th>
+      <th class="col-5">自己紹介文</th>
       <th class="col-2">会員ステータス</th>
     </tr>
   </thead>
   <tbody>
     <% users.each do |user| %>
-    <tr class="row">
-      <td class="col-2"><%= image_tag user.get_profile_image, size: "50x50" %></td>
-      <td class="col-2"><%= link_to user.name, admin_user_path(user) %></td>
-      <td class="col-4"><%= user.introduction %></td>
-      <td class="col-2">
-        <% if user.is_active %>
-          <p>有効</p>
-        <% else %>
-          <p>退会済</p>
-        <% end %>
-      </td>
+      <% unless user.guest_user? %>
+      <tr class="row">
+        <td class="col-2"><%= user.id %></td>
+        <td class="col-3"><%= link_to user.name, admin_user_path(user) %></td>
+        <td class="col-5"><%= user.introduction %></td>
+        <td class="col-2">
+          <% if user.is_active %>
+            <p style="color: green">有効</p>
+          <% else %>
+            <p style="color: gray">退会済</p>
+          <% end %>
+        </td>
       <!--<td>
         <#% if current_user.following?(@user) %>
           <#%= link_to 'フォロー解除する', user_relationship_path(@user), method: :delete %>
@@ -27,7 +28,8 @@
           <#%= link_to 'フォローする', user_relationships_path(@user), method: :post %>
         <#% end %>
       </td>-->
-    </tr>
+      </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>

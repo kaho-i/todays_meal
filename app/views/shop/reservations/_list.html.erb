@@ -1,0 +1,24 @@
+<table class="table">
+  <thead>
+    <th class="col">日付</th>
+    <th class="col">時間</th>
+    <th class="col">名前</th>
+    <th class="col">人数</th>
+    <th class="col">ステータス</th>
+  </thead>
+  <tbody>
+  <% lists.each do |list| %>
+    <%= link_to shop_reservation_path(list) do %>
+      <td class="col"><%= list.date %></td>
+      <td class="col"><%= list.time %></td>
+      <td class="col"><%= list.name %></td>
+      <td class="col"><%= list.member %></td>
+      <td class="col"><%= list.status %></td>
+    <% end %>
+  <% end %>  
+  </tbody>
+</table>
+
+<div class="row">
+  <%= paginate lists %>
+</div>

@@ -15,14 +15,14 @@
     <td class="col-4">会員ステータス</td>
     <td class="col-8">
       <% if user.is_active %>
-        <p>有効</p>
+        <p style="color: green">有効</p>
       <% else %>
-        <p>退会済</p>
+        <p style="color: gray">退会済</p>
       <% end %>
     </td>
   </tr>
   <tr class="row">
-    <td class="col-4 offset-1"><%= link_to '編集する', edit_admin_user_path(user), class: 'btn btn-block btn-info' %></td>
+    <td class="col-4"><%= link_to '編集する', edit_admin_user_path(user), class: 'btn btn-block btn-info' %></td>
   </tr>
     <!--
     <tr><td><#%= link_to 'フォロー一覧', user_followings_path %></td></tr>

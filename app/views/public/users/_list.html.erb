@@ -1,25 +1,27 @@
 <table class="table">
   <thead>
-    <tr>
-      <th>プロフィール画像</th>
-      <th>ニックネーム</th>
-      <th>自己紹介文</th>
+    <tr class="row">
+      <th class="col-2">プロフィール画像</th>
+      <th class="col-3">ニックネーム</th>
+      <th class="col-7">自己紹介文</th>
     </tr>
   </thead>
   <tbody>
     <% users.each do |user| %>
-    <tr>
-      <td><%= image_tag user.get_profile_image, size: "50x50" %></td>
-      <td><%= link_to user.name, user_path(user) %></td>
-      <td><%= user.introduction %></td>
-      <!--<td>
-        <#% if current_user.following?(@user) %>
-          <#%= link_to 'フォロー解除する', user_relationship_path(@user), method: :delete %>
-        <#% else %>
-          <#%= link_to 'フォローする', user_relationships_path(@user), method: :post %>
-        <#% end %>
-      </td>-->
-    </tr>
+      <% unless user.guest_user? %>
+      <tr class="row">
+        <td class="col-2"><%= image_tag user.get_profile_image, size: "50x50" %></td>
+        <td class="col-3"><%= link_to user.name, user_path(user) %></td>
+        <td class="col-7"><%= user.introduction %></td>
+        <!--<td>
+          <#% if current_user.following?(@user) %>
+            <#%= link_to 'フォロー解除する', user_relationship_path(@user), method: :delete %>
+          <#% else %>
+            <#%= link_to 'フォローする', user_relationships_path(@user), method: :post %>
+          <#% end %>
+        </td>-->
+      </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>

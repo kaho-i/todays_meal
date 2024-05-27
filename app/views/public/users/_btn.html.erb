@@ -1,0 +1,16 @@
+<table class='container'>
+  <% unless user.guest_user? %>
+    <% if user == current_user %>
+      <tr class="row mb-2">
+        <td class="col-10"><%= link_to '編集する', edit_user_path(user), class: 'btn btn-block btn-outline-info' %></td>
+      </tr>
+      <tr class="row">
+        <td class="col-10"><%= link_to '退会する', check_path(user), class: 'btn btn-block btn-outline-danger' %></td>
+      </tr>
+      <!--
+      <tr><td><#%= link_to 'フォロー一覧', user_followings_path %></td></tr>
+      <tr><td><#%= link_to 'フォロワー一覧', user_followers_path %></td></tr>
+      -->
+    <% end %>
+  <% end %>
+</table>

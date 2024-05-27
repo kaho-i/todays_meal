@@ -1,22 +1,24 @@
 <!--h1>Shop::Restrantss#show</h1-->
-<div class='row mt-3'>
-  <h4><%= @restrant.name %>のマイページ</h4>
+<div class="container">
+  <div class='row my-3'>
+    <h4><%= @restrant.name %>のマイページ</h4>
+  </div>
+  <table class="container">
+    <tr class="row mb-2">
+      <td class="col-3 offset-1">店舗名</td>
+      <td class="col-7"><%= @restrant.name %></td>
+    </tr>
+    <tr class="row mb-2">
+      <td class="col-3 offset-1">電話番号</td>
+      <td class="col-7"><%= @restrant.telephone_number %></td>
+    </tr>
+    <tr class="row mb-5">
+      <td class="col-3 offset-1">住所</td>
+      <td class="col-7"><%= @restrant.address %></td>
+    </tr>
+    <tr class='row'>
+      <td class="col-3 offset-2"><%= link_to '編集する', shop_information_edit_path,class:'btn btn-block btn-success' %></td>
+      <td class="col-3 offset-1"><%= link_to '退会する', shop_confirm_path,class:'btn btn-block btn-danger' %></td>
+    </tr>
+  </table>
 </div>
-<table class="container col-10 mx-auto mt-4">
-  <tr class="row mb-3">
-    <td class="col-3">店舗名</td>
-    <td class="col-7"><%= @restrant.name %></td>
-  </tr>
-  <tr class="row mb-3">
-    <td class="col-3">電話番号</td>
-    <td class="col-7"><%= @restrant.telephone_number %></td>
-  </tr>
-  <tr class="row mb-5">
-    <td class="col-3">住所</td>
-    <td class="col-7"><%= @restrant.address %></td>
-  </tr>
-  <tr class='row'>
-    <td class="col-4 offset-1"><%= link_to '編集する', shop_information_edit_path,class:'btn btn-block btn-success' %></td>
-    <td class="col-4 offset-1"><%= link_to '退会する', shop_confirm_path,class:'btn btn-block btn-danger' %></td>
-  </tr>
-</table>

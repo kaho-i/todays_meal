@@ -1,14 +1,14 @@
 <!--h1>Public::Restrants#index</h1-->
 <div class="container">
-  <div class="row mt-3">
+  <div class="row my-3">
     <h2>店舗一覧</h2>
   </div>
-  <table class="container mt-5">
+  <table class="table col-10 mx-auto">
     <thead>
       <tr class="row">
         <th class="col-2">店舗名</th>
         <th class="col-2">電話番号</th>
-        <th class="col-4">店舗住所</th>
+        <th class="col-5">店舗住所</th>
       </tr>
     </thead>
     <tbody>
@@ -16,7 +16,7 @@
       <tr class="row">
         <td class="col-2"><%= link_to restrant.name, restrant_path(restrant) %></td>
         <td class="col-2"><%= restrant.telephone_number %></td>
-        <td class="col-4"><%= restrant.address %></td>
+        <td class="col-5"><%= restrant.address %></td>
       </tr>
     <% end %>
     </tbody>
