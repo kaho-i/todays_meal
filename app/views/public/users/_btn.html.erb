@@ -2,15 +2,23 @@
   <% unless user.guest_user? %>
     <% if user == current_user %>
       <tr class="row mb-2">
-        <td class="col-10"><%= link_to '編集する', edit_user_path(user), class: 'btn btn-block btn-outline-info' %></td>
+        <td class="col-6"><%= link_to '編集する', edit_user_path(user), class: 'btn btn-block btn-outline-secondary' %></td>
+        <td class="col-6"><%= link_to '退会する', check_path(user), class: 'btn btn-block btn-outline-danger' %></td>
       </tr>
       <tr class="row">
-        <td class="col-10"><%= link_to '退会する', check_path(user), class: 'btn btn-block btn-outline-danger' %></td>
+        <td class='col-6'><%= link_to 'フォロー一覧', user_followings_path(user),class: 'btn btn-block btn-outline-success' %></td>
+        <td class='col-6'><%= link_to 'フォロワー一覧', user_followers_path(user), class: 'btn btn-block btn-outline-info' %></td>
       </tr>
-      <!--
-      <tr><td><#%= link_to 'フォロー一覧', user_followings_path %></td></tr>
-      <tr><td><#%= link_to 'フォロワー一覧', user_followers_path %></td></tr>
-      -->
+    <% else %>
+      <tr class="row mt-4">
+        <td class='col-6'>
+          <% if current_user.following.include?(user) %>
+            <%= link_to 'フォロー解除する', user_relationships_path(user.id), method: :delete, class: 'btn btn-block btn-danger' %>
+          <% else %>
+            <%= link_to 'フォローする', user_relationships_path(user.id), method: :post, class: 'btn btn-block btn-primary' %>
+          <% end %>
+        </td>
+      </tr>
     <% end %>
   <% end %>
 </table>

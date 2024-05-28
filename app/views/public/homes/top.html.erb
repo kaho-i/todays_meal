@@ -4,16 +4,14 @@
   <h2>きょうのごはん</h2>
 </div>
   <% if user_signed_in? %>
-    <div class="row-my-3">ログアウトは<%= link_to 'こちら', destroy_user_session_path, method: :delete, class: 'delete-link' %>から</div>
+    <div class="row-my-2">ログアウトは<%= link_to 'こちら', destroy_user_session_path, method: :delete, class: 'delete-link' %>から</div>
   <% else %>
-    <div class="row my-4">お試しは<%= link_to 'こちら', users_guest_sign_in_path, method: :post %>から</div>
-    <div class="row">
-      <p>新規登録は<%= link_to 'こちら', new_user_registration_path %>から</p>
-      <p class="mx-4">|</p>
-      <p>登録済みの方は<%= link_to 'こちら', new_user_session_path %>から</p>
-    </div>
-    <div class="row mt-3">
-      <p><%= link_to '店舗登録はこちらから', shop_path %></p>
+    <div class="row my-2">① お試しは<%= link_to 'こちら', users_guest_sign_in_path, method: :post %>から</div>
+    <div class='row mb-2'>② 新規登録は<%= link_to 'こちら', new_user_registration_path %>から</div>
+    <div class='row mb-4'>③ 登録済みの方は<%= link_to 'こちら', new_user_session_path %>から</div>
+    
+    <div class="row mt-4">
+      <p class="ml-3"><%= link_to '店舗登録はこちらから', shop_path %></p>
       <p class="mx-4">|</p>
       <p><%= link_to '管理者の方はこちらから', admin_path %></p>
     </div>

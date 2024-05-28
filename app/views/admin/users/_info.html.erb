@@ -11,7 +11,7 @@
     <td class="col-4">自己紹介</td>
     <td class="col-8"><%= user.introduction %></td>
   </tr>
-  <tr class="row mb-2">
+  <tr class="row mb-4">
     <td class="col-4">会員ステータス</td>
     <td class="col-8">
       <% if user.is_active %>
@@ -23,9 +23,6 @@
   </tr>
   <tr class="row">
     <td class="col-4"><%= link_to '編集する', edit_admin_user_path(user), class: 'btn btn-block btn-info' %></td>
+    <td class="col-4 offset-1"><%= link_to '一覧に戻る', admin_users_path, class: 'btn btn-block btn-secondary' %></td>
   </tr>
-    <!--
-    <tr><td><#%= link_to 'フォロー一覧', user_followings_path %></td></tr>
-    <tr><td><#%= link_to 'フォロワー一覧', user_followers_path %></td></tr>
-    -->
 </table>

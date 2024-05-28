@@ -21,10 +21,10 @@
     </tr>
     <tr class="row">
       <% if f.object.persisted? %>
-        <td class="col-4 mx-auto">
-          <%= f.submit "変更内容を保存", class: 'btn btn-block btn-success' %>
+        <td class="col-3 offset-2">
+          <%= f.submit "変更を保存する", class: 'btn btn-block btn-success' %>
         </td>
-        <td class ="col-4 mx-auto">
+        <td class ="col-3 offset-1">
           <%= link_to '変更を破棄する', post_path(post), class: 'btn btn-block btn-danger' %>
         </td>
       <% else %>

@@ -1,32 +1,25 @@
 <table class="table">
   <thead>
     <tr class="row">
-      <th class="col-2"></th>
+      <th class="col-2 offset-1"></th>
       <th class="col-2">投稿ユーザー</td>
-      <th class="col-3">店舗名</td>
-      <th class="col-5">投稿内容</th>
+      <th class="col-2">店舗名</td>
+      <th class="col-3">投稿内容</th>
+      <th class='col-2'></th>
     </tr>
   </thead>
   <tbody>
     <% posts.each do |post| %>
     <tr class="row">
-      <td class="col-2">
+      <td class="col-2 offset-1">
         <%= link_to admin_post_path(post) do %>
           <%= image_tag post.image, size: "100x100" %>
         <% end %>
       </td>
       <td class="col-2"><%= link_to post.user.name, admin_user_path(post.user) %></td>
-      <td class="col-3"><%= post.shop_name %></td>
-      <td class="col-5"><%= post.body %></td>
-      <!--
-      <td>
-      <#% if favorite_by?(current_user) %>
-        <#%= link_to "#{post.favorites.count}いいね", post_favorites_path, method: :delete %>
-      <#% else %>
-        <#%= link_to "#{post.favorites.count}いいね", post_favorites_path, method: :post %>
-      <#% end %>
-      </td>
-      -->
+      <td class="col-2"><%= post.shop_name %></td>
+      <td class="col-3"><%= post.body %></td>
+      <td class='col-2'><%= link_to '削除する', admin_post_path(post), method: :delete, class: 'delete-link btn btn-outline-danger' %></td>
     </tr>
     <% end %>
   </tbody>

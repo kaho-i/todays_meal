@@ -15,15 +15,15 @@
       <td class="offset-1 col-3"><%= f.label :image, '投稿写真' %></td>
       <td class="col-8"><%= f.file_field :image, accept: 'image/*',style: 'width: 100%' %></td>
     </tr>
-    <tr class="row mb-3">
+    <tr class="row mb-4">
       <td class="offset-1 col-3"><%= f.label :body, '投稿内容' %></td>
       <td class="col-8"><%= f.text_field :body, placeholder: '投稿内容を入力してください',style: 'width: 100%' %></td>
     </tr>
     <tr class="row">
-      <td class="offset-1 col-4">
-        <%= f.submit "変更内容を保存", class: 'btn btn-block btn-success' %>
+      <td class="offset-2 col-3">
+        <%= f.submit "変更を保存する", class: 'btn btn-block btn-success' %>
       </td>
-      <td class ="offset-1 col-4">
+      <td class ="offset-1 col-3">
         <%= link_to '変更を破棄する', admin_post_path(post), class: 'btn btn-block btn-danger' %>
       </td>
     </tr>

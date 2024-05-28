@@ -6,10 +6,6 @@
   <table class="container">
   <%= form_with model: @user, url: admin_user_path, local:true do |f| %>
     <tr class="row mb-2">
-      <td class="offset-1 col-3"><%= f.label :profile_image, 'プロフィール画像' %></td>
-      <td class="col-8"><%= f.file_field :profile_image, class: "form-control-file user_image", accept: 'image/*',style: 'width: 100%' %></td>
-    </tr>
-    <tr class="row mb-2">
       <td class="offset-1 col-3"><%= f.label :email, 'メールアドレス' %></td>
       <td class="col-8"><%= f.email_field :email, autofocus: true, autocomplete: "email",style: 'width: 100%' %></td>
     </tr>

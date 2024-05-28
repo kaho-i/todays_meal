@@ -19,7 +19,8 @@
       <td class="col-7"><%= f.text_field :address, placeholder: '東京都渋谷区代々木神園町0-0',style:'width: 100%' %></td>
     </tr>
     <tr class="row">
-      <td class="col-3 offset-4"><%= f.submit '変更を保存する', class: 'btn btn-block btn-success' %></td>
+      <td class="col-3 offset-2"><%= f.submit '変更を保存する', class: 'btn btn-block btn-success' %></td>
+      <td class='col-3 offset-1'><%= link_to '変更を破棄する', shop_mypage_path, class: 'btn btn-block btn-danger' %></td>
     </tr>
     <% end %>
   </table>

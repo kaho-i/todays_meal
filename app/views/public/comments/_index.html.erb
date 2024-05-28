@@ -1,0 +1,20 @@
+<table class='container'>
+  <tbody>
+    <% post.comments.each do |comment| %>
+    <tr class='row mb-2'>
+      <td class='col-2'>
+        <%= link_to user_path(comment.user_id) do %>
+          <%= image_tag comment.user.get_profile_image, size: "50x50" %><br>
+          <%= comment.user.name %>
+        <% end %>
+      </td>
+      <td class='col-6'><%= comment.body %></td>
+      <td class='col-2'>
+        <% if comment.user == current_user || current_user == post.user %>
+          <%= link_to "削除する", post_comment_path(post, comment), method: :delete, class: "btn btn-danger", remote: true %>
+        <% end %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

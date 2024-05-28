@@ -76,10 +76,12 @@ ActiveRecord::Schema.define(version: 2024_05_08_102714) do
   end
 
   create_table "relationships", force: :cascade do |t|
-    t.integer "followed_id", null: false
     t.integer "follower_id", null: false
+    t.integer "followed_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["followed_id"], name: "index_relationships_on_followed_id"
+    t.index ["follower_id"], name: "index_relationships_on_follower_id"
   end
 
   create_table "reservations", force: :cascade do |t|
@@ -127,4 +129,6 @@ ActiveRecord::Schema.define(version: 2024_05_08_102714) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "relationships", "users", column: "followed_id"
+  add_foreign_key "relationships", "users", column: "follower_id"
 end

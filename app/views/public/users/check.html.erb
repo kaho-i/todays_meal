@@ -1,13 +1,15 @@
 <div class="container">
-  <div class="row"><h2>本当に退会しますか？</h2></div>
+  <div class="row my-3">
+    <h2>本当に退会しますか？</h2>
+  </div>
   <div class="row">
-    <p>
+    <p class="col-10 mx-auto">
       退会すると、会員登録情報や投稿、予約ができなくなります。<br>
       退会する場合は、「退会する」をクリックしてください。
     </p>
   </div>
-  <div class="row">
-    <%= link_to "退会しない", mypage_path, class: "btn btn-primary btn-block col-4" %>
-    <%= link_to "退会する", withdraw_path(@user), method: :patch, class: "btn btn-danger btn-block col-4 offset-2", data: { confirm: "本当に退会しますか？" } %>
+  <div class="row mt-4">
+    <p class='col-4 offset-1'><%= link_to "退会しない", mypage_path, class: "btn btn-primary btn-block" %></p>
+    <p class='col-4 offset-1'><%= link_to "退会する", withdraw_path(@user), method: :patch, class: "btn btn-danger btn-block", data: { confirm: "本当に退会しますか？" } %></p>
   </div>
 </div>

@@ -1,19 +1,20 @@
-<table class="table mt-3">
+<table class="table mt-3 mx-auto">
   <thead>
-    <tr class="row">
-      <th class="col-2">ユーザーID</th>
-      <th class="col-3">ニックネーム</th>
-      <th class="col-5">自己紹介文</th>
+    <tr class="row mx-auto">
+      <th class="col-1 offset-1">ID</th>
+      <th class="col-2">ユーザー名</th>
+      <th class="col-3">メールアドレス</th>
       <th class="col-2">会員ステータス</th>
+      <th class='col-2'></th>
     </tr>
   </thead>
   <tbody>
     <% users.each do |user| %>
       <% unless user.guest_user? %>
-      <tr class="row">
-        <td class="col-2"><%= user.id %></td>
-        <td class="col-3"><%= link_to user.name, admin_user_path(user) %></td>
-        <td class="col-5"><%= user.introduction %></td>
+      <tr class="row mx-auto">
+        <td class="col-1 offset-1"><%= user.id %></td>
+        <td class="col-2"><%= link_to user.name, admin_user_path(user) %></td>
+        <td class="col-3"><%= user.email %></td>
         <td class="col-2">
           <% if user.is_active %>
             <p style="color: green">有効</p>
@@ -21,13 +22,7 @@
             <p style="color: gray">退会済</p>
           <% end %>
         </td>
-      <!--<td>
-        <#% if current_user.following?(@user) %>
-          <#%= link_to 'フォロー解除する', user_relationship_path(@user), method: :delete %>
-        <#% else %>
-          <#%= link_to 'フォローする', user_relationships_path(@user), method: :post %>
-        <#% end %>
-      </td>-->
+        <td class="col-2"><%= link_to '編集する', edit_admin_user_path(user), class: 'btn btn-outline-info' %></td>
       </tr>
       <% end %>
     <% end %>

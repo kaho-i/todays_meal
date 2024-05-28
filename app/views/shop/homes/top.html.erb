@@ -2,7 +2,7 @@
 <div class="container">
   <div class="row my-3"><h4>店舗トップページ(仮)</h4></div>
   <% if restrant_signed_in? %>
-    <div class="row my-3">ログアウトは<%= link_to 'こちら', destroy_restrant_session_path, class: 'delete-link' %>から</p>
+    <div class="row my-3">ログアウトは<%= link_to 'こちら', destroy_restrant_session_path, method: :delete, class: 'delete-link' %>から</p>
   <% else %>
     <div class="row mb-2">
       <p>新規登録は<%= link_to 'こちら', new_restrant_registration_path %>から</p>

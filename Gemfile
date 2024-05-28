@@ -56,6 +56,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'kaminari'
+gem 'simple_calendar'
 #gem 'dotenv-rails'
 #group :production do
 #  gem 'mysql2'
