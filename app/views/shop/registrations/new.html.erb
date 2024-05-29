@@ -9,28 +9,28 @@
   </div>
   <table class="container mt-4">
     <tr class="row mb-2">
-      <td class="col-3"><%= f.label :name, '店名' %></td>
+      <td class="offset-1 col-3"><%= f.label :name, '店名' %></td>
       <td class="col-7"><%= f.text_field :name, placeholder: '店名を入力してください',style: 'width:100%' %></td>
     </tr>
     <tr class="row mb-2">
-      <td class="col-3"><%= f.label :telephone_number, '電話番号(ハイフンなし)' %></td>
+      <td class="offset-1 col-3"><%= f.label :telephone_number, '電話番号(ハイフンなし)' %></td>
       <td class="col-7"><%= f.text_field:telephone_number, placeholder: '00000000000', style:'width:100%' %></td>
     </tr>
     <tr class="row mb-2">
-      <td class="col-3"><%= f.label :email, 'メールアドレス' %></td>
+      <td class="offset-1 col-3"><%= f.label :email, 'メールアドレス' %></td>
       <td class="col-7"><%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'sample@exsample.com',style:'width:100%' %></td>
     </tr>
     <tr class="row mb-2">
-      <td class="col-3">
+      <td class="offset-1 col-3">
         <%= f.label :password,"パスワード" %>
         <% if @minimum_password_length %>
-          <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <em>(<%= @minimum_password_length %>文字以上)</em>
         <% end %>
       </td>
       <td class="col-7"><%= f.password_field :password, autocomplete: "new-password", style:'width:100%' %></td>
     </tr>
     <tr class="row mb-4">
-      <td class="col-3"><%= f.label :password_confirmation,"パスワード(確認用)" %></td>
+      <td class="offset-1 col-3"><%= f.label :password_confirmation,"パスワード(確認用)" %></td>
       <td class="col-7"><%= f.password_field :password_confirmation, autocomplete: "new-password",style:'width:100%' %></td>
     </tr>
     <tr class="row mb-3">

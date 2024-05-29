@@ -20,7 +20,7 @@
       <td class="offset-1 col-3">
         <%= f.label :password,"パスワード" %>
           <% if @minimum_password_length %>
-          <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <em>(<%= @minimum_password_length %>文字以上)</em>
         <% end %>
       </td>
       <td class="col-7"><%= f.password_field :password, autocomplete: "new-password",style:'width: 100%' %></td>
