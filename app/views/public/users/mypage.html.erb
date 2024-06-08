@@ -14,6 +14,7 @@
     <div class="col-8">
       <h4><%= @user.name %>さんの投稿一覧</h4>
       <%= render 'public/posts/post', posts: @posts %>
+      <%= paginate @posts %>
     </div>
   </div>
 </div>

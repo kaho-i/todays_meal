@@ -3,32 +3,6 @@
   <div class="row my-3">
     <h2>店舗一覧</h2>
   </div>
-  <table class="table col-10 mx-auto">
-    <thead>
-      <tr class="row">
-        <th class="col-2">店舗名</th>
-        <th class="col-2">電話番号</th>
-        <th class="col-4">店舗住所</th>
-        <!--<th class="col-3">予約</th>-->
-      </tr>
-    </thead>
-    <tbody>
-    <% @restrants.each do |restrant| %>
-      <tr class="row">
-        <td class="col-2"><%= link_to restrant.name, restrant_path(restrant) %></td>
-        <td class="col-2"><%= restrant.telephone_number %></td>
-        <td class="col-4"><%= restrant.address %></td>
-        <!--<td class="col-3">
-          <"% if restrant.is_open %>
-            <#%= link_to '予約はこちらから', new_reservation_path, class: 'btn btn-outline-info' %>
-          <#% end %>
-        </td>-->
-      </tr>
-    <% end %>
-    </tbody>
-  </table>
-</div>
-
-<div class="row">
+  <%= render 'list', restrants: @restrants %>
   <%= paginate @restrants %>
 </div>

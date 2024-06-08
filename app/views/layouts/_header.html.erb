@@ -12,13 +12,15 @@
           <%= flash[:notice] %>
         </div>
       <% end %>
-      <!--<div class="col-4 ml-auto mt-2" style="width: 100%">検索</div>-->
+      <div class="col-4 ml-auto mt-2">
+        <%= render 'public/searches/form' %>
+      </div>
     </nav>
   <% elsif restrant_signed_in? %>
     <!-- 店舗ログイン時の表示 -->
     <nav class="row navbar" style='background-color: #00E6B4'>
       <div class='col-2'><%= link_to 'logo', shop_path, class: 'btn btn-block btn-outline-dark' %></div>
-      <div class='col-2 offset-4'><!--<#%= link_to '予約一覧', shop_reservations_path, class: 'btn btn-block btn-outline-dark' %>--></div>
+      <div class='col-2 offset-4'><%= link_to '予約一覧', shop_reservations_path, class: 'btn btn-block btn-outline-dark' %></div>
       <div class='col-2'><%= link_to 'マイページ', shop_mypage_path, class: 'btn btn-block btn-outline-dark' %></div>
       <div class='col-2'><%= link_to 'ログアウト', destroy_restrant_session_path , method: :delete, class: 'btn btn-block btn-outline-dark' %></div>
       <% if flash[:notice] %>
@@ -26,7 +28,9 @@
           <%= flash[:notice] %>
         </div>
       <% end %>
-      <!--<div class="col-4 ml-auto mt-2" style="width: 100%">検索</div>-->
+      <div class="col-4 ml-auto mt-2">
+        <%= render 'shop/searches/form' %>
+      </div>
     </nav>
   <% elsif admin_signed_in? %>
     <!-- 管理者ログイン時の表示 -->
@@ -41,7 +45,9 @@
           <%= flash[:notice] %>
         </div>
       <% end %>
-      <!--<div class="col-4 ml-auto mt-2" style="width: 100%">検索</div>-->
+      <div class="col-4 ml-auto mt-2">
+        <%= render 'admin/searches/form' %>
+      </div>
     </nav>
   <% else %>
     <!-- ログイン前の表示 -->

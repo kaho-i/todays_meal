@@ -3,5 +3,7 @@
   <div class='row my-3'>
     <h2>予約一覧画面</h2>
   </div>
-  
+  <%= week_calendar events: @reservations do |date, reservations| %>
+    <%= date.day %>
+  <% end %>
 </div>

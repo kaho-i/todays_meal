@@ -3,7 +3,6 @@
   <div class="row my-3">
     <h2>会員一覧</h2>
   </div>
-  <div class="row">
-    <%= render 'list', users: @users %>
-  </div>
+  <%= render 'list', users: @users %>
+  <%= paginate @users %>
 </div>

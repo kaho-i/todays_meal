@@ -87,8 +87,8 @@ ActiveRecord::Schema.define(version: 2024_05_08_102714) do
   create_table "reservations", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "restrant_id", null: false
-    t.date "date", null: false
-    t.string "time", null: false
+    t.datetime "start_time", null: false
+    t.datetime "end_time"
     t.string "name", null: false
     t.integer "member", null: false
     t.boolean "status", default: true, null: false

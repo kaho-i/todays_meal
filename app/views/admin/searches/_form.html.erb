@@ -1,0 +1,6 @@
+<%= form_with url: admin_search_path, method: :get, local: true do |f| %>
+  <%= f.select :model, options_for_select({"ユーザー" => "user", "店舗" => "restrant"}) %>
+  <%= f.text_field :content, class: 'col-4' %>
+  <%= f.select :method, options_for_select({"完全一致" => "perfect", "前方一致" => "forward", "後方一致" => "backward", "部分一致" => "partial"}) %>
+  <%= f.submit "検索", class: 'btn btn-outline-dark py-0 ml-1 mb-1' %>
+<% end %>

@@ -58,9 +58,9 @@ gem 'devise'
 gem 'kaminari'
 gem 'simple_calendar'
 gem 'dotenv-rails'
-group :production do
-  gem 'mysql2'
-end
+#group :production do
+#  gem 'mysql2'
+#end
 gem "net-smtp"
 gem "net-pop"
 gem "net-imap"

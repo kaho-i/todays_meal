@@ -3,4 +3,26 @@
   <div class="row my-3">
     <h2>新規予約画面</h2>
   </div>
+  <table class="container">
+  <%= form_with model: @reservation, url: check_restrant_reservations_path do |f| %>
+    <tbody>
+      <tr class='row mb-2'>
+        <td class="offset-1 col-3"><%= f.label :date,"日付" %></td>
+        <td class="col-7"><%= f.date_field :date %></td>
+      </tr>
+      <tr class='row mb-2'>
+        <td class='offset-1 col-3'><%= f.label :time, '時間' %></td>
+        <td class='col-7'><%= f.text_field :time %></td>
+      </tr>
+      <tr class='row mb-2'>
+        <td class='offset-1 col-3'><%= f.label :name,'代表者名' %></td>
+        <td class='col-7'><%= f.text_field :name, placeholder: '令和道子' %></td>
+      </tr>
+      <tr class='row mb-2'>
+        <td class='offset-1 col-3'><%= f.label :member,'人数' %></td>
+        <td class='col-7'><%= f.select :member, options_for_select(1..4), {include_blank: "人数を選択して下さい"} %></td>
+      </tr>
+    </tbody>
+  <% end %>
+  </table>
 </div>

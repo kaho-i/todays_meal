@@ -4,16 +4,20 @@
   <h2>きょうのごはん</h2>
 </div>
   <% if user_signed_in? %>
-    <div class="row-my-2">ログアウトは<%= link_to 'こちら', destroy_user_session_path, method: :delete, class: 'delete-link' %>から</div>
+    <div class="row-my-2">
+      <%= link_to 'ログアウトはこちらから', destroy_user_session_path, method: :delete, class: 'delete-link' %>
+    </div>
   <% else %>
-    <div class="row my-2">① お試しは<%= link_to 'こちら', users_guest_sign_in_path, method: :post %>から</div>
-    <div class='row mb-2'>② 新規登録は<%= link_to 'こちら', new_user_registration_path %>から</div>
-    <div class='row mb-4'>③ 登録済みの方は<%= link_to 'こちら', new_user_session_path %>から</div>
-    
-    <div class="row mt-4">
-      <p class="ml-3"><%= link_to '店舗登録はこちらから', shop_path %></p>
-      <p class="mx-4">|</p>
-      <p><%= link_to '管理者の方はこちらから', admin_path %></p>
+    <div class="row my-2">
+      <div class='col-4'>
+        <%= link_to 'お試しはこちらから', users_guest_sign_in_path, method: :post, class: 'btn-block btn btn-outline-secondary' %>
+      </div>
+      <div class='col-4'>
+        <%= link_to '新規登録はこちらから', new_user_registration_path, class: 'btn btn-block btn-outline-success' %>
+      </div>
+      <div class='col-4'>
+        <%= link_to '登録済みの方はこちらから', new_user_session_path, class: 'btn btn-block btn-outline-info' %>
+      </div>
     </div>
   <% end %>
 </div>

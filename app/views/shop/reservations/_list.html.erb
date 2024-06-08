@@ -7,18 +7,14 @@
     <th class="col">ステータス</th>
   </thead>
   <tbody>
-  <% lists.each do |list| %>
-    <%= link_to shop_reservation_path(list) do %>
-      <td class="col"><%= list.date %></td>
-      <td class="col"><%= list.time %></td>
-      <td class="col"><%= list.name %></td>
-      <td class="col"><%= list.member %></td>
-      <td class="col"><%= list.status %></td>
+  <% reservations.each do |reservation| %>
+    <%= link_to shop_reservation_path(reservation) do %>
+      <td class="col"><%= reservation.date %></td>
+      <td class="col"><%= reservation.time %></td>
+      <td class="col"><%= reservation.name %></td>
+      <td class="col"><%= reservation.member %></td>
+      <td class="col"><%= reservation.status %></td>
     <% end %>
   <% end %>  
   </tbody>
 </table>
-
-<div class="row">
-  <%= paginate lists %>
-</div>

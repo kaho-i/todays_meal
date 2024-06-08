@@ -1,0 +1,24 @@
+<table class="table">
+  <thead>
+    <tr class="row">
+      <th class="col-2 offset-1">店舗名</th>
+      <th class="col-2">電話番号</th>
+      <th class="col-4">店舗住所</th>
+      <th class="col-3">予約</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% restrants.each do |restrant| %>
+    <tr class="row">
+      <td class="col-2 offset-1"><%= link_to restrant.name, restrant_path(restrant) %></td>
+      <td class="col-2"><%= restrant.telephone_number %></td>
+      <td class="col-4"><%= restrant.address %></td>
+      <td class="col-3">
+        <% unless restrant.is_open == false  %>
+          <%= link_to '予約はこちらから', new_restrant_reservation_path(restrant), class: 'btn btn-outline-info' %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

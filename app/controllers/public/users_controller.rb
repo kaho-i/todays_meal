@@ -1,6 +1,6 @@
 class Public::UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :ensure_guest_user, only: [:edit]
+  before_action :ensure_guest_user, only: [:edit, :withdraw]
   before_action :is_login_user?, only: [:edit, :update, :check, :withdraw]
   
   def mypage
@@ -23,6 +23,7 @@ class Public::UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
+      flash[:notice] = "編集しました"
       redirect_to user_path(@user)
     else
       render :edit
@@ -37,6 +38,7 @@ class Public::UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.update(is_active: false)
     reset_session
+    flash[:notice] = "退会しました"
     redirect_to root_path
   end
   

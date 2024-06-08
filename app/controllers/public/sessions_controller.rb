@@ -34,6 +34,7 @@ class Public::SessionsController < Devise::SessionsController
     return unless user.valid_password?(params[:user][:password])
     # 【処理内容4】 アクティブでない会員に対する処理
     if user.is_active == false
+      flash[:notice] = "退会済みです。新規登録してください"
       redirect_to new_user_registration_path
       return
     end

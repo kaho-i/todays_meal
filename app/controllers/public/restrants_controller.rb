@@ -1,4 +1,5 @@
 class Public::RestrantsController < ApplicationController
+  before_action :authenticate_user!
   def index
     @restrants = Restrant.all.page(params[:page]).per(10)
   end

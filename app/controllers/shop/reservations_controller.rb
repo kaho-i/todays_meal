@@ -1,4 +1,5 @@
 class Shop::ReservationsController < ApplicationController
+  before_action :authenticate_restrant!
   def index
   end
 

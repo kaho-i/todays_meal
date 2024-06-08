@@ -1,8 +1,18 @@
 <!--h1>Homes#about</h1-->
 <div class="container">
-  <h3 class="my-3">きょうのごはんとは...</h3>
-  
-  <p>トップページへは<%= link_to 'こちら', root_path %>から</p>
-  <p>新規登録は<%= link_to 'こちら',new_user_registration_path %>から</p>
-  <p>登録済みの方は<%= link_to 'こちら',new_user_session_path %>から</p>
+  <h3 class="row my-3">きょうのごはん</h3>
+  <div class='row my-2 d-flex justify-content-center'>
+    <p>
+      このサイトは食事を通して人と繋がり<br>
+      交流を深めるためのサイトです。
+    </p>
+  </div>
+  <div class='row'>
+    <div class='col-4 offset-2'>
+      <%= link_to '新規登録はこちらから', new_user_registration_path, class: 'btn btn-block btn-outline-success' %>
+    </div>
+    <div class='col-4 offset-1'>
+      <%= link_to '登録済みの方はこちらから', new_user_session_path, class: 'btn btn-block btn-outline-info' %>
+    </div>
+  </div>
 </div>

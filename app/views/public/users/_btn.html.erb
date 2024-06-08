@@ -1,5 +1,5 @@
 <table class='container'>
-  <% unless user.guest_user? %>
+  <% unless current_user.guest_user? %>
     <% if user == current_user %>
       <tr class="row mb-2">
         <td class="col-6"><%= link_to '編集する', edit_user_path(user), class: 'btn btn-block btn-outline-secondary' %></td>

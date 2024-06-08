@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="row my-3">
+    <h2>"<%= @content %>"の検索結果</h2>
+  </div>
+  <% if @model == 'user' %>
+    <%= render 'admin/users/list', users: @records %>
+  <% elsif @model == 'restrant' %>
+    <%= render 'admin/restrants/list', restrants: @records %>
+  <% end %>
+</div>

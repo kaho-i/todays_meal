@@ -28,6 +28,7 @@ class Shop::SessionsController < Devise::SessionsController
       return unless restrant.valid_password?(params[:restrant][:password])
       # 【処理内容4】 アクティブでない会員に対する処理
       if restrant.is_open == false
+        flash[:notice] = "退会済みです。新規登録してください"
         redirect_to new_restrant_registration_path
         return
       end

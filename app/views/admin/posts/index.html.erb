@@ -3,7 +3,6 @@
   <div class="row my-3">
     <h2>投稿一覧</h2>
   </div>
-  <div class="row mt-4">
-    <%= render 'post', posts: @posts %>
+  <%= render 'post', posts: @posts %>
+  <%= paginate @posts %>
   </div>
-</div>

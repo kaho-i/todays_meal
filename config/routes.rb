@@ -24,12 +24,14 @@ Rails.application.routes.draw do
       resource :favorites, only: [:create, :destroy]
       resources :comments, only: [:create, :destroy]
     end
-    resources :reservations, only: [:new, :create, :index, :show] do
-      collection do
-        post 'check', to: 'reservations#check'
+    resources :restrants, only: [:index, :show] do
+      resources :reservations, only: [:new, :create, :index, :show] do
+        collection do
+          post 'check', to: 'reservations#check'
+        end
       end
     end
-    resources :restrants, only: [:index, :show]
+    get "search" => "searches#search"
   end
   # 店用
   # URL /shop/sign_in ...
@@ -45,6 +47,7 @@ Rails.application.routes.draw do
     get '/confirm', to: 'restrants#confirm'
     patch '/close', to: 'restrants#close'
     resources :reservations, only: [:index, :show, :edit, :update]
+    get 'search' => 'searches#search'
   end
   # 管理者用
   # URL /admin/sign_in ...
@@ -56,5 +59,6 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :show, :edit, :update]
     resources :restrants, only: [:index, :show, :edit, :update]
     resources :posts, only: [:index, :show, :edit, :update, :destroy]
+    get 'search' => 'searches#search'
   end
 end

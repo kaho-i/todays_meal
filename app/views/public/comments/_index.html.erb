@@ -9,11 +9,11 @@
       </td>
       <td class='col-1'><%= link_to comment.user.name, user_path(comment.user) %></td>
       <td class='col-6'><%= comment.body %></td>
-      <td class='col-2'>
-        <% if comment.user == current_user || current_user == post.user %>
+      <% if comment.user == current_user || current_user == post.user %>
+        <td class='col-2'>
           <%= link_to "削除する", post_comment_path(post, comment), method: :delete, class: "btn btn-danger", remote: true %>
-        <% end %>
-      </td>
+        </td>
+      <% end %>
     </tr>
     <% end %>
   </tbody>

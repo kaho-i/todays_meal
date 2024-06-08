@@ -3,36 +3,6 @@
   <div class="row my-3">
     <h2>店舗一覧</h2>
   </div>
-  <table class="table">
-    <thead>
-      <tr class="row">
-        <th class="col-2 offset-1">店舗名</th>
-        <th class="col-2">電話番号</th>
-        <th class="col-3">店舗住所</th>
-        <th class="col-2">営業状況</th>
-        <th class='col-2'></th>
-      </tr>
-    </thead>
-    <tbody>
-    <% @restrants.each do |restrant| %>
-      <tr class="row">
-        <td class="col-2 offset-1"><%= link_to restrant.name, admin_restrant_path(restrant) %></td>
-        <td class="col-2"><%= restrant.telephone_number %></td>
-        <td class="col-3"><%= restrant.address %></td>
-        <td class="col-2">
-          <% if restrant.is_open %>
-            <p style="color: green">営業中</p>
-          <% else %>
-            <p style="color: gray">退会済</p>
-          <% end %>
-        </td>
-        <td class="col-2"><%= link_to '編集する', edit_admin_restrant_path(restrant), class: 'btn btn-outline-info' %></td>
-      </tr>
-    <% end %>
-    </tbody>
-  </table>
-</div>
-
-<div class="row">
+  <%= render 'list', restrants: @restrants %>
   <%= paginate @restrants %>
 </div>
