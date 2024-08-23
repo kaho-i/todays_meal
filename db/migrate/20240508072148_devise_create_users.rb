@@ -32,6 +32,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
       # t.string   :unlock_token # Only if unlock strategy is :email or :both
       # t.datetime :locked_at
       t.string :name #ニックネーム
+      t.string :family_name #名字
+      t.string :first_name #名前
       t.text :introduction #自己紹介文
       t.boolean :is_active, null: false, default: true #会員ステータス
 

@@ -3,6 +3,16 @@
     <th class="col-4">名前</th>
     <td class="col-8"><%= user.name %></td>
   </tr>
+  <%- if controller_name == 'show' %>
+    <tr class="row mb-2">
+      <th class="col-4">名字</th>
+      <td class="col-8"><%= user.family_name %></td>
+    </tr>
+    <tr class="row mb-2">
+      <th class="col-4">名前</th>
+      <td class="col-8"><%= user.first_name %></td>
+    </tr>
+  <% end %>
   <tr class="row mb-4">
     <th class="col-4">自己紹介</th>
     <td class="col-8"><%= user.introduction %></td>

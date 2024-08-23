@@ -15,6 +15,12 @@
     <td class="col-8"><%= f.email_field :email, autofocus: true, autocomplete: "email",style: 'width: 100%' %></td>
   </tr>
   <tr class="row mb-2">
+    <td class="offset-1 col-1"><%= f.label :, "" %></td>
+    <td class="col-8"><%= f.text_field :,style: "width: 100%" %></td>
+    <td class="offset-1 col-1"><%= f.label :, "" %></td>
+    <td class="col-8"><%= f.text_field :,style: "width: 100%" %></td>
+  </tr>
+  <tr class="row mb-2">
     <td class="offset-1 col-3"><%= f.label :name,'ニックネーム' %></td>
     <td class="col-8"><%= f.text_field :name, class: "form-control name",style: 'width:100%' %></td>
   </tr>

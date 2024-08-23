@@ -119,6 +119,8 @@ ActiveRecord::Schema.define(version: 2024_05_08_102714) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "name"
+    t.string "family_name"
+    t.string "first_name"
     t.text "introduction"
     t.boolean "is_active", default: true, null: false
     t.datetime "created_at", precision: 6, null: false

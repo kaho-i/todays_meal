@@ -9,15 +9,21 @@
   </div>
   <table class="container">
     <tr class="row mb-2">
-      <td class="offset-1 col-3"><%= f.label :name, "ユーザー名" %></td>
+      <td class="offset-1 col-1 px-0"><%= f.label :family_name,"名字" %></td>
+      <td class="offset-1 col-3"><%= f.text_field :family_name,placeholder: "令和",style: "width: 100%" %></td>
+      <td class="col-1 pr-0"><%= f.label :first_name,"名前" %></td>
+      <td class="col-3"><%= f.text_field :first_name,placeholder: "道子",style: "width: 100%" %></td>
+    </tr>
+    <tr class="row mb-2">
+      <td class="offset-1 col-2 px-0"><%= f.label :name, "ユーザー名" %></td>
       <td class="col-7"><%= f.text_field :name,autofocus: true, placeholder: 'ニックネームを入力してください',style: 'width:100%' %></td>
     </tr>
     <tr class="row mb-2">
-      <td class="offset-1 col-3"><%= f.label :email,"メールアドレス" %></td>
+      <td class="offset-1 col-2 px-0"><%= f.label :email,"メールアドレス" %></td>
       <td class="col-7"><%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'sample@exsample.com',style: 'width: 100%' %></td>
     </tr>
     <tr class="row mb-2">
-      <td class="offset-1 col-3">
+      <td class="offset-1 col-2 px-0">
         <%= f.label :password,"パスワード" %>
           <% if @minimum_password_length %>
           <em>(<%= @minimum_password_length %>文字以上)</em>
@@ -26,7 +32,7 @@
       <td class="col-7"><%= f.password_field :password, autocomplete: "new-password",style:'width: 100%' %></td>
     </tr>
     <tr class="row mb-4">
-      <td class="offset-1 col-3"><%= f.label :password_confirmation,"パスワード(確認用)" %></td>
+      <td class="offset-1 col-2 px-0"><%= f.label :password_confirmation,"パスワード(確認用)" %></td>
       <td class="col-7"><%= f.password_field :password_confirmation, autocomplete: "new-password",style: 'width:100%' %></td>
     </tr>
     <tr class="row mb-3">
@@ -34,6 +40,7 @@
     </tr>
   </table>
 <% end %>
-<div class="row mt-5">
-  <%= render "public/shared/links" %>
+  <div class="row mt-5">
+    <%= render "public/shared/links" %>
+  </div>
 </div>
