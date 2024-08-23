@@ -7,20 +7,19 @@
   <%= form_with model: @reservation, url: check_restrant_reservations_path do |f| %>
     <tbody>
       <tr class='row mb-2'>
-        <td class="offset-1 col-3"><%= f.label :date,"日付" %></td>
+        <td class="offset-1 col-2">予約店舗</td>
+        <td class="col-7"><%= @restrant.name %></td>
+      </tr>
+      <tr class='row mb-2'>
+        <td class="offset-1 col-2"><%= f.label :date,"日付" %></td>
         <td class="col-7"><%= f.date_field :date %></td>
       </tr>
       <tr class='row mb-2'>
-        <td class='offset-1 col-3'><%= f.label :time, '時間' %></td>
-        <td class='col-7'><%= f.text_field :time %></td>
-      </tr>
-      <tr class='row mb-2'>
-        <td class='offset-1 col-3'><%= f.label :name,'代表者名' %></td>
-        <td class='col-7'><%= f.text_field :name, placeholder: '令和道子' %></td>
-      </tr>
-      <tr class='row mb-2'>
-        <td class='offset-1 col-3'><%= f.label :member,'人数' %></td>
+        <td class='offset-1 col-2'><%= f.label :member,'人数' %></td>
         <td class='col-7'><%= f.select :member, options_for_select(1..4), {include_blank: "人数を選択して下さい"} %></td>
+      </tr>
+      <tr class="row">
+        <td class="offset-3 col-3"><%= f.submit '予約を確認する', class: 'btn btn-block btn-success' %></td>
       </tr>
     </tbody>
   <% end %>

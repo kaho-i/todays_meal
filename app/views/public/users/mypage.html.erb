@@ -6,7 +6,9 @@
   <div class="row">
     <div class="col-4">
       <div class="col-10 mx-auto mb-3">
-        <%= image_tag @user.get_profile_image, size: "150x150" %>
+        <%= link_to user_path(@user) do %>
+          <%= image_tag @user.get_profile_image, size: "150x150" %>
+        <% end %>
       </div>
       <%= render 'info',user: @user %>
       <%= render 'btn', user: @user %>

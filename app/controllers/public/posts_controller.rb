@@ -1,9 +1,9 @@
 class Public::PostsController < ApplicationController
-  before_action :authenticate_user!, only[:new, :create, :edit, :update, :destroy]
+  before_action :authenticate_user!
   def new
     @post = Post.new
   end
-  
+
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
@@ -27,7 +27,7 @@ class Public::PostsController < ApplicationController
   def edit
     @post = Post.find(params[:id])
   end
-  
+
   def update
     @post = Post.find(params[:id])
     if @post.update(post_params)
@@ -37,17 +37,17 @@ class Public::PostsController < ApplicationController
       render :edit
     end
   end
-  
+
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
     flash[:notice] = "投稿を削除しました"
     redirect_to posts_path
   end
-  
+
   private
   def post_params
     params.require(:post).permit(:user_id, :shop_name, :body, :image)
   end
-  
+
 end

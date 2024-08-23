@@ -3,5 +3,27 @@
   <div class='row my-3'>
     <h2>予約確認画面</h2>
   </div>
-  
+  <table class="container">
+    <tbody>
+      <tr class="row">
+      <td>予約店舗</td>
+      <td><%= @restrant.name %></td>
+    </tr>
+    <tr class="row">
+      <td>予約日時</td>
+      <td><%= @select_date %></td>
+    </tr>
+    <tr class="row">
+      <td>代表者名</td>
+      <td><%= @representative %></td>
+    </tr>
+    <tr class="row">
+      <td>
+        <% form_with url: restrant_reservations_path, method: :post do |f| %>
+          <%= f.submit '予約を確定させる', class: 'btn btn-block btn-success' %>
+        <% end %>
+      </td>
+    </tr>
+    </tbody>
+  </table>
 </div>

@@ -14,8 +14,10 @@
       <td class="col-2"><%= restrant.telephone_number %></td>
       <td class="col-4"><%= restrant.address %></td>
       <td class="col-3">
-        <% unless restrant.is_open == false  %>
-          <%= link_to '予約はこちらから', new_restrant_reservation_path(restrant), class: 'btn btn-outline-info' %>
+        <% unless restrant.is_open == false %>
+          <% unless current_user.guest_user? %>
+            <%= link_to '予約はこちらから', new_restrant_reservation_path(restrant), class: 'btn btn-outline-info' %>
+          <% end %>
         <% end %>
       </td>
     </tr>
