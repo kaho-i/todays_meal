@@ -3,34 +3,34 @@
   <div class="row my-3">
     <h2><%= @restrant.name %>の店舗詳細</h2>
   </div>
-  <table class="container col-10 mx-auto">
-  <tr class="row mb-3">
-    <td class="col-3 offset-1">店舗名</td>
-    <td class="col-8"><%= @restrant.name %></td>
-  </tr>
-  <tr class="row mb-3">
-    <td class="col-3 offset-1">メールアドレス</td>
-    <td class="col-8"><%= @restrant.email %></td>
-  </tr>
-  <tr class="row mb-3">
-    <td class="col-3 offset-1">電話番号</td>
-    <td class="col-8"><%= @restrant.telephone_number %></td>
-  </tr>
-  <tr class="row mb-3">
-    <td class="col-3 offset-1">住所</td>
-    <td class="col-8"><%= @restrant.address %></td>
-  </tr>
-  <% unless current_user.guest_user? %>
-    <tr class="row">
-      <td class="col-3 offset-1">予約状況</td>
-      <td class="col-8">
-        <% if @restrant.is_open %>
-          <%= link_to '予約はこちらから', new_reservation_path, class: 'btn btn-info' %>
-        <% else %>
-          <p>店舗に直接問い合わせください</p>
-        <% end %>
-      </td>
+  <table class="col-11 mx-auto">
+    <tr class="row mb-3">
+      <td class="col-3 offset-1">店舗名</td>
+      <td class="col-8"><%= @restrant.name %></td>
     </tr>
-  <% end %>
+    <tr class="row mb-3">
+      <td class="col-3 offset-1">メールアドレス</td>
+      <td class="col-8"><%= @restrant.email %></td>
+    </tr>
+    <tr class="row mb-3">
+      <td class="col-3 offset-1">電話番号</td>
+      <td class="col-8"><%= @restrant.telephone_number %></td>
+    </tr>
+    <tr class="row mb-3">
+      <td class="col-3 offset-1">住所</td>
+      <td class="col-8"><%= @restrant.address %></td>
+    </tr>
+    <% unless current_user.guest_user? %>
+      <tr class="row">
+        <td class="col-3 offset-1">予約状況</td>
+        <td class="col-8">
+          <% if @restrant.is_open %>
+            <%= link_to '予約はこちらから', new_reservation_path, class: 'btn btn-info' %>
+          <% else %>
+            <p>店舗に直接問い合わせください</p>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
   </table>
 </div>

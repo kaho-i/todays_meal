@@ -6,7 +6,7 @@ class CreateReservations < ActiveRecord::Migration[6.1]
       t.date :date, null: false
       t.string :name, null: false
       t.integer :member, null: false
-      t.boolean :status, null: false, default: true
+      t.integer :status, null: false, default: 0
       t.timestamps
     end
   end

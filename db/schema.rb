@@ -90,7 +90,7 @@ ActiveRecord::Schema.define(version: 2024_05_08_102714) do
     t.date "date", null: false
     t.string "name", null: false
     t.integer "member", null: false
-    t.boolean "status", default: true, null: false
+    t.integer "status", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

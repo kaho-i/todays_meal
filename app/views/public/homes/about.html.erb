@@ -8,11 +8,14 @@
     </p>
   </div>
   <div class='row'>
-    <div class='col-4 offset-2'>
+    <div class='col-3 offset-1'>
       <%= link_to '新規登録はこちらから', new_user_registration_path, class: 'btn btn-block btn-outline-success' %>
     </div>
-    <div class='col-4 offset-1'>
+    <div class='col-3 offset-1'>
       <%= link_to '登録済みの方はこちらから', new_user_session_path, class: 'btn btn-block btn-outline-info' %>
+    </div>
+    <div class="col-3 offset-1">
+      <%= link_to 'トップへ移動する', root_path, class: 'btn btn-block btn-outline-dark' %>
     </div>
   </div>
 </div>

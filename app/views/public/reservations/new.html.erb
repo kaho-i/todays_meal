@@ -6,20 +6,20 @@
   <div class="row">
     <%= render 'layouts/errors', obj: @reservation %>
   </div>
-  <table class="container">
+  <table class="col-11 mx-auto">
   <%= form_with model: @reservation, url: check_reservations_path, local: true do |f| %>
     <tbody>
       <tr class='row mb-2'>
-        <td class="offset-1 col-2">予約店舗</td>
-        <td class="col-7"><%= f.select :restrant_id, options_from_collection_for_select(Restrant.all, :id, :name) %></td>
+        <td class="offset-2 col-2">予約店舗</td>
+        <td class="col-5"><%= f.select :restrant_name, options_from_collection_for_select(Restrant.all, :id, :name),include_blank: '店舗名を選択してください' %></td>
       </tr>
       <tr class='row mb-2'>
-        <td class="offset-1 col-2">日付</td>
-        <td class="col-7"><%= f.date_field :new_date %></td>
+        <td class="offset-2 col-2">日付</td>
+        <td class="col-5"><%= f.date_field :new_date %></td>
       </tr>
-      <tr class='row mb-2'>
-        <td class='offset-1 col-2'>人数</td>
-        <td class='col-7'><%= f.select :new_member, options_for_select((1..4).to_a), {include_blank: "人数を選択して下さい"} %></td>
+      <tr class='row mb-4'>
+        <td class='offset-2 col-2'>人数</td>
+        <td class='col-5'><%= f.select :new_member, options_for_select(1..4), {include_blank: "人数を選択して下さい"} %></td>
       </tr>
       <tr class="row">
         <td class="offset-3 col-3">

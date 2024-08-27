@@ -1,1 +1,32 @@
 <!--h1>Public::Reservations#show</h1-->
+<div class ="container">
+  <div class ="row my-3">
+    <h3>予約詳細画面</h3>
+  </div>
+  <table class="col-11 mx-auto">
+    <tr class="row mb-2">
+      <th class="col-2">店舗名</th>
+      <td class="col-5"><%= @reservation.restrant.name %></td>
+    </tr>
+    <tr class="row mb-2">
+      <th class="col-2">日時</th>
+      <td class="col-5"><%= @reservation.date %></td>
+    </tr>
+    <tr class="row mb-2">
+      <th class="col-2">人数</th>
+      <td class="col-5"><%= @reservation.member %>人</td>
+    </tr>
+    <tr class="row">
+      <th class="col-2">ステータス</th>
+      <td class="col-5"><%= @reservation.status_i18n %></td>
+    </tr>
+  </table>
+  <div class="row mt-4">
+    <div class="offset-2 col-3">
+      <%= link_to '予約一覧に戻る', reservations_path, class: 'btn btn-block btn-info' %>
+    </div>
+    <div class="offset-1 col-3">
+      <%= link_to '店舗一覧へ', restrants_path, class: 'btn btn-block btn-primary' %>
+    </div>
+  </div>
+</div>

@@ -2,6 +2,9 @@
 <div class="container">
   <div class="row my-3">
     <h2><%= @user.name %>さんのマイページ</h2>
+    <% unless current_user.guest_user? %>
+      <div class="col-2 ml-auto"><%= link_to '新規投稿', new_post_path, class: 'btn btn-block btn-outline-dark' %></div>
+    <% end %>
   </div>
   <div class="row">
     <div class="col-4">
