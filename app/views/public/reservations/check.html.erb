@@ -4,26 +4,33 @@
     <h2>予約確認画面</h2>
   </div>
   <table class="container">
+  <%= form_with model: @reservation, url: restrant_reservations_path, method: :post do |f| %>
     <tbody>
       <tr class="row">
-      <td>予約店舗</td>
-      <td><%= @restrant.name %></td>
+      <td class="col-2">予約店舗</td>
+      <td class="col-8"><%= @restrant.name %></td>
     </tr>
     <tr class="row">
-      <td>予約日時</td>
-      <td><%= @select_date %></td>
+      <td class="col-2">予約日時</td>
+      <td class="col-8"><%= @select_date %></td>
     </tr>
     <tr class="row">
-      <td>代表者名</td>
-      <td><%= @representative %></td>
+      <td class="col-2">予約人数</td>
+      <td class="col-8"><%= @member %></td>
     </tr>
     <tr class="row">
-      <td>
-        <% form_with url: restrant_reservations_path, method: :post do |f| %>
-          <%= f.submit '予約を確定させる', class: 'btn btn-block btn-success' %>
-        <% end %>
+      <td class="col-2">代表者名</td>
+      <td class="col-8"><%= @representative %></td>
+    </tr>
+    <tr class="row">
+      <td class="col-3 offset-2">
+        <%= f.submit '予約を確定させる', class: 'btn btn-block btn-success' %>
+      </td>
+      <td class="col-3">
+        <%= link_to '予約を修正する', new_restrant_reservation_path(@restrant) , class: 'btn btn-block btn-danger' %>
       </td>
     </tr>
     </tbody>
+  <% end %>
   </table>
 </div>

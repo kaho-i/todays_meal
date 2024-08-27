@@ -3,7 +3,22 @@
   <div class='row my-3'>
     <h2>予約一覧画面</h2>
   </div>
-  <%= week_calendar events: @reservations do |date, reservations| %>
-    <%= date.day %>
-  <% end %>
+  <table class="table">
+    <thead>
+      <tr class="row">
+        <th class="col-4">店舗名</th>
+        <th class="col-3">日時</th>
+        <th class="col-3">人数</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @reservations.each do |reservation| %>
+        <tr class="row">
+          <td class="col-4"><%= link_to reservation.restrant_id.name, restrant_reservation_path(reservation) %></td>
+          <td class="col-3"><%= reservation.date %></td>
+          <td class="col-3"><%= reservation.member %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>

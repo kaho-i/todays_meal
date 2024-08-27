@@ -6,12 +6,22 @@ class Public::ReservationsController < ApplicationController
     @reservation.restrant_id = @restrant.id
   end
 
+  def check
+    @user = current_user
+    @restrant = Restrant.find(params[:restrant_id])
+    @select_date = params[:reservation][:new_date]
+    @member = params[:reservation][:new_member]
+    @representative = @user.family_name + @user.first_name
+  end
+
   def create
     @user = current_user
     @restrant = Restrant.find(params[:restrant_id])
-    @reservation = Reservations.create(reservation_params)
+    @reservation = Reservation.create
     @reservation.user_id = @user.id
     @reservation.restrant_id = @restrant.id
+    @reservation.date = params[:reservation][:new_date]
+    @reservation.member = params[:reservation][:new_member]
     @reservation.name = @user.family_name + @user.first_name
     if @reservation.save
       redirect_to shops_path notice:"予約が完了しました"
@@ -20,14 +30,8 @@ class Public::ReservationsController < ApplicationController
     end
   end
 
-  def check
-    @user = current_user
-    @restrant = Restrant.find(params[:restrant_id])
-    @select_date = params[:reservation][:date]
-    @representative = @user.family_name + @user.first_name
-  end
-
   def index
+    @reservations = Reservation.all
   end
 
   def show

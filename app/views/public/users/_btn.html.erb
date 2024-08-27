@@ -5,9 +5,12 @@
         <td class="col-6"><%= link_to '編集する', edit_user_path(user), class: 'btn btn-block btn-outline-secondary' %></td>
         <td class="col-6"><%= link_to '退会する', check_path(user), class: 'btn btn-block btn-outline-danger' %></td>
       </tr>
-      <tr class="row">
+      <tr class="row mb-2">
         <td class='col-6'><%= link_to 'フォロー一覧', user_followings_path(user),class: 'btn btn-block btn-outline-success' %></td>
         <td class='col-6'><%= link_to 'フォロワー一覧', user_followers_path(user), class: 'btn btn-block btn-outline-info' %></td>
+      </tr>
+      <tr class="row">
+        <td class="col-12"><%= link_to '予約一覧', reservations_path, class: 'btn btn-block btn-outline-warning' %></td>
       </tr>
     <% else %>
       <tr class="row mt-4">
