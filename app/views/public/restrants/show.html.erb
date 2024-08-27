@@ -25,7 +25,7 @@
       <td class="col-3 offset-1">予約状況</td>
       <td class="col-8">
         <% if @restrant.is_open %>
-          <%= link_to '予約はこちらから', new_restrant_reservation_path(@restrant), class: 'btn btn-info' %>
+          <%= link_to '予約はこちらから', new_reservation_path, class: 'btn btn-info' %>
         <% else %>
           <p>店舗に直接問い合わせください</p>
         <% end %>

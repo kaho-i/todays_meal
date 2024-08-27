@@ -24,12 +24,10 @@ Rails.application.routes.draw do
       resource :favorites, only: [:create, :destroy]
       resources :comments, only: [:create, :destroy]
     end
-    get 'reservations' => 'reservations#index'
-    resources :restrants, only: [:index, :show] do
-      resources :reservations, only: [:new, :create, :show] do
-        collection do
-          post 'check', to: 'reservations#check'
-        end
+    resources :restrants, only: [:index, :show]
+    resources :reservations, only: [:new, :create, :index, :show] do
+      collection do
+        post 'check', to: 'reservations#check'
       end
     end
     get "search" => "searches#search"

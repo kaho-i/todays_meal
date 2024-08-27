@@ -16,7 +16,7 @@
       <td class="col-3">
         <% unless restrant.is_open == false %>
           <% unless current_user.guest_user? %>
-            <%= link_to '予約はこちらから', new_restrant_reservation_path(restrant), class: 'btn btn-outline-info' %>
+            <%= link_to '予約はこちらから', new_reservation_path, class: 'btn btn-outline-info' %>
           <% end %>
         <% end %>
       </td>

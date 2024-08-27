@@ -6,17 +6,21 @@
   <table class="table">
     <thead>
       <tr class="row">
-        <th class="col-4">店舗名</th>
-        <th class="col-3">日時</th>
-        <th class="col-3">人数</th>
+        <th class="col-1"></th>
+        <th class="col-2">店舗名</th>
+        <th class="col-2">日時</th>
+        <th class="col-1">人数</th>
+        <th class="col-5">電話番号　※キャンセルの場合はこちらまで電話ください</th>
       </tr>
     </thead>
     <tbody>
       <% @reservations.each do |reservation| %>
         <tr class="row">
-          <td class="col-4"><%= link_to reservation.restrant_id.name, restrant_reservation_path(reservation) %></td>
-          <td class="col-3"><%= reservation.date %></td>
-          <td class="col-3"><%= reservation.member %></td>
+          <td class="col-1"><%= link_to reservation.id, reservation_path(reservation) %></td>
+          <td class="col-2"><%= link_to reservation.restrant.name, restrant_path(reservation.restrant) %></td>
+          <td class="col-2"><%= reservation.date %></td>
+          <td class="col-1"><%= reservation.member %></td>
+          <td class="col-5"><%= reservation.restrant.telephone_number %></td>
         </tr>
       <% end %>
     </tbody>

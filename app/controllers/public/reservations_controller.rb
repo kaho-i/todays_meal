@@ -1,13 +1,12 @@
 class Public::ReservationsController < ApplicationController
   before_action :authenticate_user!
   def new
-    @restrant = Restrant.find(params[:restrant_id])
     @reservation = Reservation.new
-    @reservation.restrant_id = @restrant.id
   end
 
   def check
     @user = current_user
+    @reservation = Reservation.new(reservation_params)
     @restrant = Restrant.find(params[:restrant_id])
     @select_date = params[:reservation][:new_date]
     @member = params[:reservation][:new_member]
