@@ -1,2 +1,36 @@
-<h1>Shop::Reservations#edit</h1>
-<p>Find me in app/views/shop/reservations/edit.html.erb</p>
+<!--h1>Shop::Reservations#edit</h1-->
+<div class="container">
+  <div class="row my-3">
+    <h2>予約編集画面</h2>
+  </div>
+  <div class="row">
+    <%= render 'layouts/errors', obj: @reservation %>
+  </div>
+  <div class="row">
+    <table class="col-8 mx-auto">
+    <%= form_with model: @reservation, url: shop_reservation_path(@reservation) do |f| %>
+      <tr class="row mb-2">
+        <td class="col-2">日付</td>
+        <td class="col-5"><%= f.date_field :date %></td>
+      </tr>
+      <tr class="row mb-2">
+        <td class="col-2">人数</td>
+        <td class="col-5"><%= f.select :member, [['1人',1],['2人',2],['3人',3],['4人',4]],{},{class: 'form-control form-control-sm'} %></td>
+      </tr>
+      <tr class="row mb-4">
+        <td class="col-2">ステータス</td>
+        <td class="col-5">
+          <%= f.select :status, [
+            [Reservation.statuses_i18n[:before_reservation], :before_reservation],
+            [Reservation.statuses_i18n[:cancel], :cancel],
+            [Reservation.statuses_i18n[:completed], :completed]
+          ],{},{class: 'form-control form-control-sm'} %>
+        </td>
+      </tr>
+      <tr class="row">
+        <td class="col-3 offset-1"><%= f.submit '保存する', class: 'btn btn-block btn-success' %></td>
+      </tr>
+    <% end %>
+    </table>
+  </div>
+</div>

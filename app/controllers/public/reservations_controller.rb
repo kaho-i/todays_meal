@@ -32,7 +32,7 @@ class Public::ReservationsController < ApplicationController
 
   def index
     @user = current_user
-    @reservations = Reservation.where(user_id: @user.id).page(params[:page]).per(10)
+    @reservations = Reservation.where(user_id: @user.id).order(date: :asc).page(params[:page]).per(10)
   end
 
   def show

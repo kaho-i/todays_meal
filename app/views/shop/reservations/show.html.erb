@@ -3,4 +3,28 @@
   <div class="row my-3">
     <h2>予約詳細</h2>
   </div>
+  <div class="row">
+    <table class="col-10 mx-auto">
+      <tr class="row mb-2">
+        <th class="offset-1 col-2">日時</th>
+        <td class="col-5"><%= @reservation.date %></td>
+      </tr>
+      <tr class="row mb-2">
+        <th class="offset-1 col-2">人数</th>
+        <td class="col-5"><%= @reservation.member %></td>
+      </tr>
+      <tr class="row mb-2">
+        <th class="offset-1 col-2">代表者名</th>
+        <td class="col-5"><%= @reservation.name %></td>
+      </tr>
+      <tr class="row mb-4">
+        <th class="offset-1 col-2">ステータス</th>
+        <td class="col-5"><%= @reservation.status_i18n %></td>
+      </tr>
+    </table>
+  </div>
+  <div class="row mt-4">
+    <div class="col-3 offset-2"><%= link_to '一覧へ戻る', shop_reservations_path, class: 'btn btn-block btn-info' %></div>
+    <div class="col-3 offset-1"><%= link_to '編集する', edit_shop_reservation_path(@reservation), class: 'btn btn-block btn-success' %></div>
+  </div>
 </div>

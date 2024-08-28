@@ -3,23 +3,30 @@
   <div class="row my-3">
     <h2>投稿詳細画面</h2>
   </div>
-  <div class="row">
+  <div class="row mb-4">
     <div class="col-3 mx-auto">
       <%= image_tag @post.image, size: "200x200" %>
     </div>
-    <table class="col-9">
-      <tr>
-        <td class="offset-1 col-3">投稿ユーザー</td>
-        <td class="col-8"><%= link_to @post.user.name,user_path(@post.user_id) %></td>
-      </tr>
-      <tr>
-        <td class="offset-1 col-3">店舗名</td>
-        <td class="col-8"><%= @post.shop_name %></td>
-      </tr>
-      <tr>
-        <td class="offset-1 col-3">投稿内容</td>
-        <td class="col-8"><%= @post.body %></td>
-      </tr>
+    <div class="col-9">
+      <table class="container">
+        <tr class="row mb-3">
+          <td class="offset-1 col-3">投稿ユーザー</td>
+          <td class="col-8"><%= link_to @post.user.name,user_path(@post.user_id) %></td>
+        </tr>
+        <tr class="row mb-3">
+          <td class="offset-1 col-3">店舗名</td>
+          <td class="col-8"><%= @post.shop_name %></td>
+        </tr>
+        <tr class="row mb-3">
+          <td class="offset-1 col-3">投稿内容</td>
+          <td class="col-8"><%= @post.body %></td>
+        </tr>
+      </table>
+      <div class="row mt-4">
+        <div class="offset-2 col-3"><%= link_to '編集する', edit_admin_post_path(@post), class: 'btn btn-success' %></div>
+        <div class="offset-1 col-3"><%= link_to '削除する', admin_post_path(@post), method: :delete, class: 'delete-link btn btn-danger' %></div>
+      </div>
+    </div>
       <!--
       <tr>
         <td>
@@ -31,13 +38,8 @@
         </td>
       </tr>
       -->
-    </table>
   </div>
   
-  <div class="row my-4">
-    <div class="offset-2 col-3"><%= link_to '編集する', edit_admin_post_path(@post), class: 'btn btn-block btn-success' %></div>
-    <div class="offset-1 col-3"><%= link_to '削除する', admin_post_path(@post), method: :delete, class: 'delete-link btn btn-block btn-danger' %></div>
-  </div>
   <div class="row mb-2">
     <%= render 'public/comments/index', post: @post %>
   </div>
