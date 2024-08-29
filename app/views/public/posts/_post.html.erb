@@ -1,7 +1,7 @@
 <table class="container table">
   <thead>
     <tr class="row">
-      <th class="col-2 offset-1"></th>
+      <th class="col-1 offset-1"></th>
       <th class="col-2">投稿ユーザー</td>
       <th class="col-3">店舗名</td>
       <th class='col-2'>コメント数</th>
@@ -11,9 +11,9 @@
   <tbody>
     <% posts.each do |post| %>
     <tr class="row">
-      <td class="col-2 offset-1">
+      <td class="col-1 offset-1">
         <%= link_to post_path(post) do %>
-          <%= image_tag post.image, size: "100x100" %>
+          <%= image_tag post.image, size: "50x50" %>
         <% end %>
       </td>
       <td class="col-2"><%= link_to post.user.name, user_path(post.user) %></td>

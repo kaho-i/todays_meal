@@ -23,14 +23,14 @@
       <tr>
         <th class='col-3 offset-1'>いいね数</td>
         <td class='col-2'>
-          <% if @post.user != current_user %>
+          <% if @post.user == current_user || current_user.guest_user? %>
+            ♥<%= @post.favorites.count %>
+          <% else %>
             <% if @post.favorited_by?(current_user) %>
               <%= link_to "♥#{@post.favorites.count}", post_favorites_path(@post), method: :delete, style: 'color: red' %>
             <% else %>
               <%= link_to "♥#{@post.favorites.count}", post_favorites_path(@post), method: :post %>
             <% end %>
-          <% else %>
-            ♥<%= @post.favorites.count %>
           <% end %>
         </td>
       </tr>
@@ -50,5 +50,7 @@
   <div class="row mb-2">
     <%= render 'public/comments/index', post: @post %>
   </div>
-  <%= render 'public/comments/comment', post: @post, comment: @comment %>
+  <% unless current_user.guest_user? %>
+    <%= render 'public/comments/comment', post: @post, comment: @comment %>
+  <% end %>
 </div>

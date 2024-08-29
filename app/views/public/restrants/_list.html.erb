@@ -15,7 +15,9 @@
       <td class="col-4"><%= restrant.address %></td>
       <td class="col-3">
         <% unless restrant.is_open == false %>
-          <% unless current_user.guest_user? %>
+          <% if current_user.guest_user? %>
+            <p>登録すれば利用できます</p>
+          <% else %>
             <%= link_to '予約はこちらから', new_reservation_path, class: 'btn btn-outline-info' %>
           <% end %>
         <% end %>

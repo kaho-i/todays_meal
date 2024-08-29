@@ -13,7 +13,7 @@
     <tr class="row">
       <td class="col-2 offset-1">
         <%= link_to admin_post_path(post) do %>
-          <%= image_tag post.image, size: "100x100" %>
+          <%= image_tag post.image, size: "50x50" %>
         <% end %>
       </td>
       <td class="col-2"><%= link_to post.user.name, admin_user_path(post.user) %></td>

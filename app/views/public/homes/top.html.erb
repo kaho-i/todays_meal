@@ -8,7 +8,7 @@
       <%= link_to 'ログアウトはこちらから', destroy_user_session_path, method: :delete, class: 'delete-link' %>
     </div>
   <% else %>
-    <div class="row my-2">
+    <div class="row my-5">
       <div class='col-4'>
         <%= link_to 'お試しはこちらから', users_guest_sign_in_path, method: :post, class: 'btn-block btn btn-outline-secondary' %>
       </div>
