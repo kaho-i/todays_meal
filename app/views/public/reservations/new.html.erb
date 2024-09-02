@@ -6,29 +6,25 @@
   <div class="row">
     <%= render 'layouts/errors', obj: @reservation %>
   </div>
-  <div class="row">
-    <table class="col-8 mx-auto">
+  <div class="container col-8 mx-auto">
     <%= form_with model: @reservation, url: check_reservations_path, local: true do |f| %>
-      <tbody>
-        <tr class='row mb-2'>
-          <td class="col-2">予約店舗</td>
-          <td class="col-5"><%= f.select :restrant_name, options_from_collection_for_select(Restrant.all, :id, :name),{include_blank: '店舗名を選択してください'},{class: 'form-control form-control-sm'} %></td>
-        </tr>
-        <tr class='row mb-2'>
-          <td class="col-2">日付</td>
-          <td class="col-5"><%= f.date_field :new_date %></td>
-        </tr>
-        <tr class='row mb-4'>
-          <td class='col-2'>人数</td>
-          <td class='col-5'><%= f.select :new_member, [['1人',1],['2人',2],['3人',3],['4人',4]], {include_blank: "人数を選択して下さい"},{class: 'form-control form-control-sm'} %></td>
-        </tr>
-        <tr class="row">
-          <td class="offset-3 col-3">
-            <%= f.submit '予約を確認する', class: 'btn btn-block btn-info' %>
-          </td>
-        </tr>
-      </tbody>
+      <div class='row mb-2'>
+        <div class="col-2 offset-1">予約店舗</div>
+        <div class="col-5"><%= f.select :restrant_name, options_from_collection_for_select(Restrant.all, :id, :name),{include_blank: '店舗名を選択してください'},class: 'form-control name' %></div>
+      </div>
+      <div class='row mb-2'>
+        <div class="col-2 offset-1">日付</div>
+        <div class="col-5"><%= f.date_field :new_date, class: 'form-control date', min: Time.zone.now %></div>
+      </div>
+      <div class='row mb-4'>
+        <div class='col-2 offset-1'>人数</div>
+        <div class='col-5'><%= f.select :new_member, [['1人',1],['2人',2],['3人',3],['4人',4]], {include_blank: "人数を選択して下さい"},class: 'form-control name' %></div>
+      </div>
+      <div class="row">
+        <div class="offset-3 col-3">
+          <%= f.submit '予約を確認する', class: 'btn btn-block btn-info' %>
+        </div>
+      </div>
     <% end %>
-    </table>
   </div>
 </div>

@@ -1,6 +1,6 @@
 class Public::UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :ensure_guest_user, only: [:edit, :withdraw]
+  #before_action :ensure_guest_user, only: [:edit, :withdraw]
   before_action :is_login_user?, only: [:edit, :update, :check, :withdraw]
   
   def mypage

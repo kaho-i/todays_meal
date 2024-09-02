@@ -17,9 +17,9 @@
         <td class="col-3"><%= user.email %></td>
         <td class="col-2">
           <% if user.is_active %>
-            <p style="color: green">有効</p>
+            <p style="color: green; margin-bottom: 0">有効</p>
           <% else %>
-            <p style="color: gray">退会済</p>
+            <p style="color: gray; margin-bottom: 0">退会済</p>
           <% end %>
         </td>
         <td class="col-2"><%= link_to '編集する', edit_admin_user_path(user), class: 'btn btn-outline-info' %></td>

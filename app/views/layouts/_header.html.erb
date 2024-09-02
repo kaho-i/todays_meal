@@ -51,7 +51,7 @@
     </nav>
   <% else %>
     <!-- ログイン前の表示 -->
-    <nav class="row navbar" style='background-color: #FFC0DF'>
+    <nav class="row navbar" style='background-color: #FFC0DF; height: 85px; align-items: flex-start'>
       <div class="col-2"><%= link_to 'logo', root_path, class: 'btn btn-block btn-outline-dark' %></div>
       <div class="col-2 offset-2"><%= link_to 'About', about_path, class: 'btn btn-block btn-outline-dark' %></div>
       <div class="col-2"><%= link_to '投稿一覧', posts_path, class: 'btn btn-block btn-outline-dark' %></div>

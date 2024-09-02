@@ -212,5 +212,8 @@ ja:
     pm: 午後
   views:
     pagination:
-      next: 'Next>'
-      last: 'Last>>'
+      first: "&laquo; 最初"
+      last: "最後 &raquo;"
+      previous: "&lsaquo; 前へ"
+      next: "次へ &rsaquo;"
+      truncate: "..."

@@ -3,33 +3,31 @@
   <div class='row my-3'>
     <h2>予約確認画面</h2>
   </div>
-  <div class="row">
-    <table class="col-8 mx-auto">
+  <table class="container col-8 mx-auto">
     <%= form_with url: reservations_path, method: :post do |f| %>
-      <tbody>
-        <tr class="row">
-        <td class="col-2">予約店舗</td>
-        <td class="col-5"><%= @restrant.name %></td>
+    <tbody>
+      <tr class="row">
+        <td class="col-2 offset-1">予約店舗</td>
+        <td class="col-5 offset-1"><%= @restrant.name %></td>
         <%= hidden_field_tag 'reservation[restrant_name]', @restrant_id %>
       </tr>
       <tr class="row">
-        <td class="col-2">予約日時</td>
-        <td class="col-5"><%= @select_date %></td>
+        <td class="col-2 offset-1">予約日時</td>
+        <td class="col-5 offset-1"><%= @select_date %></td>
         <%= hidden_field_tag 'reservation[new_date]', @select_date %>
       </tr>
       <tr class="row">
-        <td class="col-2">予約人数</td>
-        <td class="col-5"><%= @member %>人</td>
+        <td class="col-2 offset-1">予約人数</td>
+        <td class="col-5 offset-1"><%= @member %>人</td>
         <%= hidden_field_tag 'reservation[new_member]', @member %>
       </tr>
       <tr class="row mb-4">
-        <td class="col-2">代表者名</td>
-        <td class="col-5"><%= @user.family_name%><%= @user.first_name %></td>
+        <td class="col-2 offset-1">代表者名</td>
+        <td class="col-5 offset-1"><%= @user.family_name%><%= @user.first_name %></td>
       </tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="row">
+    </tbody>
+  </table>
+  <div class="row col-10 mx-auto">
     <div class="col-3 offset-1">
       <%= f.submit '予約を確定させる', class: 'btn btn-block btn-success' %>
     </div>
@@ -37,5 +35,5 @@
       <%= link_to '予約を修正する', new_reservation_path(@restrant) , class: 'btn btn-block btn-danger' %>
     </div>
   </div>
-    <% end %>
+  <% end %>
 </div>

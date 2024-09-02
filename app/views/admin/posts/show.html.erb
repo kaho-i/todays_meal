@@ -27,17 +27,6 @@
         <div class="offset-1 col-3"><%= link_to '削除する', admin_post_path(@post), method: :delete, class: 'delete-link btn btn-danger' %></div>
       </div>
     </div>
-      <!--
-      <tr>
-        <td>
-          <#% if favorite_by?(current_user) %>
-            <#%= link_to "#{post.favorites.count}いいね", post_favorites_path, method: :delete %>
-          <#% else %>
-            <#%= link_to "#{post.favorites.count}いいね", post_favorites_path, method: :post %>
-          <#% end %>
-        </td>
-      </tr>
-      -->
   </div>
   
   <div class="row mb-2">

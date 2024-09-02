@@ -10,7 +10,7 @@
   </thead>
   <tbody>
     <% users.each do |user| %>
-      <% unless user.guest_user? %>
+      <% unless user.guest_user? || user.is_active == false %>
       <tr class="row">
         <td class="offset-1 col-2"><%= image_tag user.get_profile_image, size: "50x50" %></td>
         <td class="col-2"><%= link_to user.name, user_path(user) %></td>

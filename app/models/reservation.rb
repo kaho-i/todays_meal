@@ -12,4 +12,5 @@ class Reservation < ApplicationRecord
   validates :date, presence: true
   validates :member, presence: true
   
+ 
 end

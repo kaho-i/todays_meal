@@ -21,11 +21,11 @@
     <% @reservations.each do |reservation| %>
       <% if reservation.status != 'before_reservation' %>
         <tr class="row" style="background-color: #808080">
-          <td class="col-1 offset-1"><%= link_to '>', shop_reservation_path(reservation),style: 'color: white' %></td>
+          <td class="col-1 offset-1"><%= link_to '>', reservation_path(reservation),style: 'color: white' %></td>
           <td class="col-2"><%= link_to reservation.restrant.name, restrant_path(reservation.restrant),style: 'color: white' %></td>
       <% else %>
         <tr class="row">
-          <td class="col-1 offset-1"><%= link_to '>', shop_reservation_path(reservation) %></td>
+          <td class="col-1 offset-1"><%= link_to '>', reservation_path(reservation) %></td>
           <td class="col-2"><%= link_to reservation.restrant.name, restrant_path(reservation.restrant) %></td>
       <% end %>
           <td class="col-2"><%= reservation.date %></td>
@@ -33,15 +33,19 @@
           <td class="col-2"><%= reservation.restrant.telephone_number %></td>
           <td class="col-2">
             <% if reservation.status == 'before_reservation' %>
-              <p style="color: green"><%= reservation.status_i18n %></p>
+              <p style="color: green; margin-bottom: 0"><%= reservation.status_i18n %></p>
             <% elsif reservation.status == 'cancel' %>
-              <p style="color: white"><%= reservation.status_i18n %></p>
+              <p style="color: white; margin-bottom: 0"><%= reservation.status_i18n %></p>
             <% elsif reservation.status == 'completed' %>
-              <p style="color: black"><%= reservation.status_i18n %></p>
+              <p style="color: black; margin-bottom: 0"><%= reservation.status_i18n %></p>
             <% end %>
           </td>
         </tr>
       <% end %>
     </tbody>
   </table>
+  
+  <div class="row">
+    <div class="col-12"><%= paginate @reservations %></div>
+  </div>
 </div>

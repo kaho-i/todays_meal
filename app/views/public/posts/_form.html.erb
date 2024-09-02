@@ -1,36 +1,32 @@
 <div class="container">
-  <div class="row">
+  <div class="row my-3">
     <%= render 'layouts/errors', obj: post %>
   </div>
-</div>
 
-<table class="col-11 mx-auto">
   <%= form_with model: post do |f| %>
-  <tbody>
-    <tr class="row mb-2">
-      <td class="offset-1 col-3"><%= f.label :shop_name, '店舗名' %></td>
-      <td class="col-8"><%= f.text_field :shop_name, autofocus: true, placeholder: '店舗名を入力してください',style: 'width: 80%' %></td>
-    </tr>
-    <tr class="row mb-2">
-      <td class="offset-1 col-3"><%= f.label :image, '投稿写真' %></td>
-      <td class="col-8"><%= f.file_field :image, accept: 'image/*',style: 'width: 80%' %></td>
-    </tr>
-    <tr class="row mb-3">
-      <td class="offset-1 col-3"><%= f.label :body, '投稿内容' %></td>
-      <td class="col-8"><%= f.text_field :body, placeholder: '投稿内容を入力してください',style: 'width: 80%' %></td>
-    </tr>
-    <tr class="row">
+    <div class="row mb-2">
+      <div class="offset-1 col-3"><%= f.label :shop_name, '店舗名' %></div>
+      <div class="col-8"><%= f.text_field :shop_name, autofocus: true, class: "form-control name", placeholder: '店舗名を入力してください',style: 'width: 80%; padding-top:0; padding-bottom:0' %></div>
+    </div>
+    <div class="row mb-2" style='height: 38px'>
+      <div class="offset-1 col-3"><%= f.label :image, '投稿写真' %></div>
+      <div class="col-8"><%= f.file_field :image, class: "form-control-file", accept: 'image/*',style: 'width: 80%; margin-top: 5px' %></div>
+    </div>
+    <div class="row mb-4">
+      <div class="offset-1 col-3"><%= f.label :body, '投稿内容' %></div>
+      <div class="col-8"><%= f.text_field :body, class: "form-control introduction", placeholder: '投稿内容を入力してください',style: 'width: 80%; padding-top:0; padding-bottom:0' %></div>
+    </div>
+    <div class="row">
       <% if f.object.persisted? %>
-        <td class="col-3 offset-2">
+        <div class="col-3 offset-2">
           <%= f.submit "変更を保存する", class: 'btn btn-block btn-success' %>
-        </td>
-        <td class ="col-3 offset-1">
+        </div>
+        <div class ="col-3 offset-1">
           <%= link_to '変更を破棄する', post_path(post), class: 'btn btn-block btn-danger' %>
-        </td>
+        </div>
       <% else %>
-        <td class="col-4 offset-3"><%= f.submit "新規投稿", class: 'btn btn-block btn-success' %></td>
+        <div class="col-3 offset-4"><%= f.submit "新規投稿", class: 'btn btn-block btn-success' %></div>
       <% end %>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+    </div>
+  <% end %>
+</div>
