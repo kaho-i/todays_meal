@@ -1,34 +1,39 @@
 <!--h1>Admin::Shops#edit</h1-->
 <div class="container">
   <div class="row my-3">
-    <h4><%= @restrant.name %>の店舗情報編集画面</h4>
+    <h2><%= @restrant.name %>の店舗情報編集画面</h2>
   </div>
-  <!--<#%= render 'layouts/error', obj: @restrant %>-->
-  <table class="container">
+  <div class="row">
+    <%= render 'layouts/errors', obj: @restrant %>
+  </div>
+  
+  <div class="container col-10 mx-auto">
     <%= form_with model: @restrant, url: admin_restrant_path do |f| %>
-    <tr class="row mb-2">
-      <td class="offset-1 col-3"><%= f.label :name, '店舗名' %></td>
-      <td class="col-8"><%= f.text_field :name, autofocus: true,style: 'width:100%' %></td>
-    </tr>
-    <tr class="row mb-2">
-      <td class="offset-1 col-3"><%= f.label :telephone_number, '電話番号(ハイフンなし)' %></td>
-      <td class="col-8"><%= f.text_field :telephone_number, placeholder: '00000000000',style:'width:100%' %></td>
-    </tr>
-    <tr class="row mb-2">
-      <td class="offset-1 col-3"><%= f.label :address, '住所' %></td>
-      <td class="col-8"><%= f.text_field :address, placeholder: '東京都渋谷区代々木神園町0-0',style:'width: 100%' %></td>
-    </tr>
-    <tr class="row mb-4">
-      <td class="offset-1 col-3"><%= f.label :is_open, '営業状況' %></td>
-      <td class="col-8">
-        <%= f.radio_button :is_open, true, class: 'col-2' %>営業中
-        <%= f.radio_button :is_open, false, class: 'col-2 offset-2' %>退会済
-      </td>
-    </tr>
-    <tr class="row">
-      <td class="col-3 offset-2"><%= f.submit '変更を保存する', class: 'btn btn-block btn-success' %></td>
-      <td class="col-3 offset-1"><%= link_to '変更を破棄する', admin_restrants_path, class: 'btn btn-block btn-danger' %></td>
-    </tr>
+    <div class="row mb-2">
+      <div class="offset-1 col-3">店舗名</div>
+      <div class="col-8"><%= f.text_field :name, autofocus: true, class: "form-control w-100 px-2 py-1" %></div>
+    </div>
+    <div class="row mb-2">
+      <div class="offset-1 col-3">電話番号(ハイフンなし)</div>
+      <div class="col-8"><%= f.text_field :telephone_number, placeholder: '00000000000', class: "form-control w-100 px-2 py-1" %></div>
+    </div>
+    <div class="row mb-2">
+      <div class="offset-1 col-3">住所</div>
+      <div class="col-8"><%= f.text_field :address, placeholder: '東京都渋谷区代々木神園町0-0', class: "form-control w-100 px-2 py-1" %></div>
+    </div>
+    <div class="row mb-4">
+      <div class="offset-1 col-3 py-1">営業状況</div>
+      <div class="row col-8">
+        <div class="col-1 py-1"><%= f.radio_button :is_open, true %></div>
+        <div class="col-3 py-1">営業中</div>
+        <div class="col-1 offset-2 py-1"><%= f.radio_button :is_open, false %></div>
+        <div class="col-3 py-1">退会済</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-3 offset-2"><%= f.submit '変更を保存する', class: 'btn btn-block btn-success' %></div>
+      <div class="col-3 offset-1"><%= link_to '変更を破棄する', admin_restrants_path, class: 'btn btn-block btn-danger' %></div>
+    </div>
     <% end %>
-  </table>
+  </div>
 </div>

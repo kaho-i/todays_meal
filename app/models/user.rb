@@ -19,7 +19,7 @@ class User < ApplicationRecord
   validates :introduction, length: { maximum: 50 }
   validates :family_name, presence: true
   validates :first_name, presence: true
-  
+
   def get_profile_image
     unless profile_image.attached?
       file_path = Rails.root.join('app/assets/images/no_image.jpg')
@@ -27,7 +27,7 @@ class User < ApplicationRecord
     end
     profile_image
   end
-  
+
   GUEST_USER_EMAIL = "guest@example.com"
 
   def self.guest
@@ -36,19 +36,19 @@ class User < ApplicationRecord
       user.name = "ゲストユーザー"
     end
   end
-  
+
   def guest_user?
     email == GUEST_USER_EMAIL
   end
-  
+
   def follow(user)
     following << user
   end
-  
+
   def unfollow(user)
     following.delete(user)
   end
-  
+
   def self.search_for(content, method)
     if method == 'perfect'
       User.where(name: content)

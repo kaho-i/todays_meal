@@ -30,7 +30,7 @@
     </tr>
     <% unless @reservation.date.past? %>
       <tr class="row">
-        <td class="col-8 offset-2">キャンセルは<%= @reservation.restrant.telephone_number %>に前日までに</td>
+        <td class="col-8 offset-2">キャンセルは<strong><%= @reservation.restrant.telephone_number %></strong>まで</td>
       </tr>
     <% end %>
   </table>

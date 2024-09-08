@@ -1,24 +1,24 @@
 <!--h1>Shop::Restrantss#show</h1-->
 <div class="container">
   <div class='row my-3'>
-    <h4><%= @restrant.name %>のマイページ</h4>
+    <h2><%= @restrant.name %>のマイページ</h2>
   </div>
-  <table class="container">
+  <table class="container col-8 mx-auto">
     <tr class="row mb-2">
-      <td class="col-3 offset-1">店舗名</td>
-      <td class="col-7"><%= @restrant.name %></td>
+      <td class="col-4">店舗名</td>
+      <td class="col-8"><%= @restrant.name %></td>
     </tr>
     <tr class="row mb-2">
-      <td class="col-3 offset-1">電話番号</td>
-      <td class="col-7"><%= @restrant.telephone_number %></td>
+      <td class="col-4">電話番号</td>
+      <td class="col-8"><%= @restrant.telephone_number %></td>
     </tr>
     <tr class="row mb-4">
-      <td class="col-3 offset-1">住所</td>
-      <td class="col-7"><%= @restrant.address %></td>
+      <td class="col-4">住所</td>
+      <td class="col-8"><%= @restrant.address %></td>
     </tr>
     <tr class='row'>
-      <td class="col-3 offset-2"><%= link_to '編集する', shop_information_edit_path,class:'btn btn-block btn-success' %></td>
-      <td class="col-3 offset-1"><%= link_to '退会する', shop_confirm_path,class:'btn btn-block btn-danger' %></td>
+      <td class="col-4 offset-1"><%= link_to '編集する', shop_information_edit_path,class:'btn btn-block btn-success' %></td>
+      <td class="col-4 offset-1"><%= link_to '退会する', shop_confirm_path,class:'btn btn-block btn-danger' %></td>
     </tr>
   </table>
 </div>

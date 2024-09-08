@@ -30,6 +30,7 @@ class Public::SessionsController < Devise::SessionsController
     user = User.find_by(email: params[:user][:email])
     # 【処理内容2】 アカウントを取得できなかった場合、このメソッドを終了する
     return if user.nil?
+      flash[:notice] = "メールアドレスまたはパスワードが一致しません"
     # 【処理内容3】 取得したアカウントのパスワードと入力されたパスワードが一致していない場合、このメソッドを終了する
     return unless user.valid_password?(params[:user][:password])
     # 【処理内容4】 アクティブでない会員に対する処理

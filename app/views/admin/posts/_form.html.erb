@@ -2,31 +2,29 @@
   <div class="row">
     <%= render 'layouts/errors', obj: post %>
   </div>
-</div>
-
-<table class='container'>
+  
+  <div class='container col-10 mx-auto'>
   <%= form_with model: post, url: admin_post_path do |f| %>
-  <tbody>
-    <tr class="row mb-2">
-      <td class="offset-1 col-3"><%= f.label :shop_name, '店舗名' %></td>
-      <td class="col-8"><%= f.text_field :shop_name, autofocus: true, placeholder: '店舗名を入力してください',style: 'width: 100%' %></td>
-    </tr>
-    <tr class="row mb-2">
-      <td class="offset-1 col-3"><%= f.label :image, '投稿写真' %></td>
-      <td class="col-8"><%= f.file_field :image, accept: 'image/*',style: 'width: 100%' %></td>
-    </tr>
-    <tr class="row mb-4">
-      <td class="offset-1 col-3"><%= f.label :body, '投稿内容' %></td>
-      <td class="col-8"><%= f.text_field :body, placeholder: '投稿内容を入力してください',style: 'width: 100%' %></td>
-    </tr>
-    <tr class="row">
-      <td class="offset-2 col-3">
+    <div class="row mb-2">
+      <div class="offset-1 col-3"><%= f.label :shop_name, '店舗名' %></div>
+      <div class="col-8"><%= f.text_field :shop_name, autofocus: true, placeholder: '店舗名を入力してください', class: "form-control w-100 px-2 py-1" %></div>
+    </div>
+    <div class="row mb-2">
+      <div class="offset-1 col-3"><%= f.label :image, '投稿写真' %></div>
+      <div class="col-8"><%= f.file_field :image, accept: 'image/*', class: "w-100 py-1" %></div>
+    </div>
+    <div class="row mb-4">
+      <div class="offset-1 col-3"><%= f.label :body, '投稿内容' %></div>
+      <div class="col-8"><%= f.text_field :body, placeholder: '投稿内容を入力してください', class: "form-control w-100 px-2 py-1" %></div>
+    </div>
+    <div class="row">
+      <div class="offset-1 col-4">
         <%= f.submit "変更を保存する", class: 'btn btn-block btn-success' %>
-      </td>
-      <td class ="offset-1 col-3">
+      </div>
+      <div class ="offset-1 col-4">
         <%= link_to '変更を破棄する', admin_post_path(post), class: 'btn btn-block btn-danger' %>
-      </td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+      </div>
+    </div>
+  <% end %>
+  </div>
+</div>
